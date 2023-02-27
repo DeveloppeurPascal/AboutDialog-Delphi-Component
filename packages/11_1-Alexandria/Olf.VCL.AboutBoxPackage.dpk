@@ -1,0 +1,60 @@
+// ********************************************************************************
+// *
+// * About Dialog component
+// *
+// * (c) 2022 Patrick Premartin
+// *
+// ********************************************************************************
+// *
+// * Project website :
+// *	https://dialogueapropos.developpeur-pascal.fr/
+// *
+// * You have bugs, requests or questions, use GitHub issues :
+// *	https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component/issues
+// *
+// ********************************************************************************
+// *
+// * This is a commercial project.
+// * If you don't have a license please buy one.
+// *
+// ********************************************************************************
+
+package Olf.VCL.AboutBoxPackage;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Olf Software - About Dialog - VCL'}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl;
+
+contains
+  Olf.VCL.AboutDialog in '..\..\sources\Olf.VCL.AboutDialog.pas',
+  Olf.VCL.AboutDialogForm in '..\..\sources\Olf.VCL.AboutDialogForm.pas' {OlfAboutDialogForm};
+
+end.

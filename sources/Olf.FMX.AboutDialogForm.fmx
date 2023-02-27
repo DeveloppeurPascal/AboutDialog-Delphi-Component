@@ -1,0 +1,221 @@
+object OlfAboutDialogForm: TOlfAboutDialogForm
+  Left = 0
+  Top = 0
+  ActiveControl = btnClose
+  BorderStyle = Single
+  Caption = 'A propos'
+  ClientHeight = 350
+  ClientWidth = 600
+  Position = OwnerFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnResize = FormResize
+  DesignerMasterStyle = 0
+  object zoneLogo: TLayout
+    Align = MostLeft
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Size.Width = 200.000000000000000000
+    Size.Height = 350.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object LogoGlyph: TGlyph
+      Align = Top
+      Position.X = 5.000000000000000000
+      Position.Y = 205.000000000000000000
+      Size.Width = 190.000000000000000000
+      Size.Height = 200.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object LogoImage: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Top
+      HitTest = False
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 190.000000000000000000
+      Size.Height = 200.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object lblTitre: TLabel
+    Align = Top
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 205.000000000000000000
+    Position.Y = 5.000000000000000000
+    Size.Width = 390.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 30.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'lblTitre'
+    TabOrder = 1
+  end
+  object zoneTextes: TLayout
+    Align = Client
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Size.Width = 390.000000000000000000
+    Size.Height = 188.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    OnResize = zoneTextesResize
+    object pnlDescription: TRectangle
+      Align = Top
+      Fill.Kind = None
+      Padding.Left = 5.000000000000000000
+      Padding.Top = 5.000000000000000000
+      Padding.Right = 5.000000000000000000
+      Padding.Bottom = 5.000000000000000000
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 380.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      object VertScrollBox1: TVertScrollBox
+        Align = Client
+        Padding.Left = 5.000000000000000000
+        Padding.Top = 5.000000000000000000
+        Padding.Right = 5.000000000000000000
+        Padding.Bottom = 5.000000000000000000
+        Size.Width = 370.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 370.000000000000000000
+        Viewport.Height = 40.000000000000000000
+        object lblDescription: TLabel
+          Align = Top
+          AutoSize = True
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 360.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'lblDescription'
+          TabOrder = 0
+        end
+      end
+    end
+    object pnlLicence: TRectangle
+      Align = Top
+      Fill.Kind = None
+      Padding.Left = 5.000000000000000000
+      Padding.Top = 5.000000000000000000
+      Padding.Right = 5.000000000000000000
+      Padding.Bottom = 5.000000000000000000
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 65.000000000000000000
+      Size.Width = 380.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      object VertScrollBox2: TVertScrollBox
+        Align = Client
+        Padding.Left = 5.000000000000000000
+        Padding.Top = 5.000000000000000000
+        Padding.Right = 5.000000000000000000
+        Padding.Bottom = 5.000000000000000000
+        Size.Width = 370.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 370.000000000000000000
+        Viewport.Height = 40.000000000000000000
+        object lblLicence: TLabel
+          Align = Top
+          AutoSize = True
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 360.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'lblDescription'
+          TabOrder = 0
+        end
+      end
+    end
+  end
+  object zoneBouton: TLayout
+    Align = Bottom
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 205.000000000000000000
+    Position.Y = 305.000000000000000000
+    Size.Width = 390.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    object btnClose: TButton
+      Align = Right
+      Cancel = True
+      Default = True
+      ModalResult = 8
+      Position.X = 270.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Fermer'
+      OnClick = btnCloseClick
+    end
+  end
+  object lblVersion: TLabel
+    Align = Top
+    AutoSize = True
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 205.000000000000000000
+    Position.Y = 55.000000000000000000
+    Size.Width = 390.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'lblVersion'
+    TabOrder = 2
+  end
+  object lblURL: TLabel
+    Align = Top
+    AutoSize = True
+    StyledSettings = [Family, Size]
+    HitTest = True
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 205.000000000000000000
+    Position.Y = 81.000000000000000000
+    Size.Width = 390.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.StyleExt = {04040000000000000004000000}
+    TextSettings.FontColor = claBlue
+    Text = 'lblURL'
+    TabOrder = 3
+    OnClick = lblURLClick
+  end
+end
