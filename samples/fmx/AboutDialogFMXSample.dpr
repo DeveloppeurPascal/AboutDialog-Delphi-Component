@@ -32,9 +32,9 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   Unit2 in 'Unit2.pas' {Form2},
-  u_urlOpen in '..\u_urlOpen.pas',
   Olf.FMX.AboutDialogForm in '..\..\sources\Olf.FMX.AboutDialogForm.pas' {OlfAboutDialogForm},
-  Olf.FMX.AboutDialog in '..\..\sources\Olf.FMX.AboutDialog.pas';
+  Olf.FMX.AboutDialog in '..\..\sources\Olf.FMX.AboutDialog.pas',
+  u_urlOpen in '..\lib-externes\librairies\u_urlOpen.pas';
 
 {$R *.res}
 
