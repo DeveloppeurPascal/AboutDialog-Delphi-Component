@@ -1,0 +1,3 @@
+[submodule "samples/lib-externes/librairies"]
+	path = samples/lib-externes/librairies
+	url = https://github.com/DeveloppeurPascal/librairies.git
