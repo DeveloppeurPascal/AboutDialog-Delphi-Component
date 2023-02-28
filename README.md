@@ -1,4 +1,4 @@
-# TOlfAboutDialog Delphi Component (in english)
+# TOlfAboutDialog Delphi Component
 
 [Cette page en français.](LISEZMOI.md)
 

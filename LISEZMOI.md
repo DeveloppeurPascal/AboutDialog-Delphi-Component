@@ -1,4 +1,4 @@
-# Composant Delphi TOlfAboutDialog (en français)
+# Composant Delphi TOlfAboutDialog
 
 [This page in english.](README.md)
 
