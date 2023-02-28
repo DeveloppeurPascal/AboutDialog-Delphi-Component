@@ -201,6 +201,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
   object lblURL: TLabel
     Align = Top
     AutoSize = True
+    Cursor = crHandPoint
     StyledSettings = [Family, Size]
     HitTest = True
     Margins.Left = 5.000000000000000000

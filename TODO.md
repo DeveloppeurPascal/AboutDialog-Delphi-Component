@@ -10,7 +10,6 @@
 * ajouter un champ "remerciements" ou un bouton affichant le texte associé lorsqu'il est renseigné
 * ajouter une couleur pour modifier la couleur du bandeau contenant le logo
 * faire une copie de l'URL dans le presse papier lors d'un clic droit dessus
-* changer le curseur de la souris lorsqu'on passe sur le lien si celui-ci est actif (= lié à un événement)
 
 ## Exemples VCL
 
@@ -26,6 +25,5 @@
 * ajouter un champ "remerciements" ou un bouton affichant le texte associé lorsqu'il est renseigné
 * ajouter une couleur pour modifier la couleur du bandeau contenant le logo
 * faire une copie de l'URL dans le presse papier lors d'un clic droit dessus
-* changer le curseur de la souris lorsqu'on passe sur le lien si celui-ci est actif (= lié à un événement)
 
 ## Exemples FireMonkey
