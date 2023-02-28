@@ -45,7 +45,7 @@ Pour installer un paquet de composant :
 
 Ce dépôt de code dépend des dépôts suivants :
 
-* aucune
+* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) est utlisé par les projets de démo et doit être présent dans le dossier ./samples/lib-externes/librairies
 
 ## Comment demander une nouvelle fonctionnalité, signaler un bogue ou une faille de sécurité ?
 

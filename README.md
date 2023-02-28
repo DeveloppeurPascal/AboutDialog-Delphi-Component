@@ -45,7 +45,7 @@ To install a component package:
 
 This project depends on :
 
-* none
+* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) is used by the sample projects and must be in the folder ./samples/lib-externes/librairies
 
 ## How to ask a new feature, report a bug or a security issue ?
 
