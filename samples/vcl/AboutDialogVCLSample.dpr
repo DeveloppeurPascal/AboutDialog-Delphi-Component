@@ -33,9 +33,9 @@ program AboutDialogVCLSample;
 uses
   Vcl.Forms,
   Unit1 in 'Unit1.pas' {Form1},
-  Olf.VCL.AboutDialogForm in '..\..\sources\Olf.VCL.AboutDialogForm.pas' {OlfAboutDialogForm},
-  Olf.VCL.AboutDialog in '..\..\sources\Olf.VCL.AboutDialog.pas',
-  u_urlOpen in '..\lib-externes\librairies\u_urlOpen.pas';
+  Olf.VCL.AboutDialog in '..\..\src\Olf.VCL.AboutDialog.pas',
+  Olf.VCL.AboutDialogForm in '..\..\src\Olf.VCL.AboutDialogForm.pas' {OlfAboutDialogForm},
+  u_urlOpen in '..\lib-externes\librairies\src\u_urlOpen.pas';
 
 {$R *.res}
 
