@@ -152,6 +152,9 @@ procedure Register;
 
 implementation
 
+uses
+  FMX.Forms;
+
 procedure Register;
 begin
   RegisterComponents('OlfSoftware', [TOlfAboutDialog]);
@@ -200,6 +203,8 @@ begin
       else
         frmAboutBox.MultiResBitmap := MultiResBitmap;
       frmAboutBox.Titre := Titre;
+      if frmAboutBox.Titre.IsEmpty and (owner is TCustomForm) then
+        frmAboutBox.Titre := (owner as TCustomForm).Caption;
       frmAboutBox.VersionNumero := VersionNumero;
       frmAboutBox.VersionDate := VersionDate;
       frmAboutBox.URL := URL;
