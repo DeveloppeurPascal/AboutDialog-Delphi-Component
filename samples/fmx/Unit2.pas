@@ -20,10 +20,10 @@
 // ********************************************************************************
 
 // ********************************************************************************
-// * 
-// * Some images from this project come from Adobe Stock. Don't use them outside 
+// *
+// * Some images from this project come from Adobe Stock. Don't use them outside
 // * this program without buying a license from them.
-// * 
+// *
 // ********************************************************************************
 
 unit Unit2;
@@ -48,6 +48,8 @@ type
     Layout1: TLayout;
     OlfAboutDialog1: TOlfAboutDialog;
     Button5: TButton;
+    OlfAboutDialog2: TOlfAboutDialog;
+    Button6: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -55,6 +57,15 @@ type
     procedure Button5Click(Sender: TObject);
     procedure OlfAboutDialog1CloseDialog;
     procedure OlfAboutDialog1URLClick(const AURL: string);
+    procedure Button6Click(Sender: TObject);
+    procedure OlfAboutDialog2AfterExecute(Sender: TObject);
+    procedure OlfAboutDialog2BeforeExecute(Sender: TObject);
+    procedure OlfAboutDialog2CloseDialog;
+    procedure OlfAboutDialog2FormActivate(Sender: TObject);
+    procedure OlfAboutDialog2FormClose(Sender: TObject);
+    procedure OlfAboutDialog2FormCreate(Sender: TObject);
+    procedure OlfAboutDialog2FormShow(Sender: TObject);
+    procedure OlfAboutDialog2URLClick(const AURL: string);
   private
     { Déclarations privées }
   public
@@ -137,6 +148,11 @@ begin
   OlfAboutDialog1.Execute;
 end;
 
+procedure TForm2.Button6Click(Sender: TObject);
+begin
+  OlfAboutDialog2.Execute;
+end;
+
 procedure TForm2.OlfAboutDialog1CloseDialog;
 begin
   ShowMessage('About Dialog Closed');
@@ -146,6 +162,46 @@ procedure TForm2.OlfAboutDialog1URLClick(const AURL: string);
 begin
   if not AURL.isEmpty then
     url_Open_In_Browser(AURL);
+end;
+
+procedure TForm2.OlfAboutDialog2AfterExecute(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog2AfterExecute');
+end;
+
+procedure TForm2.OlfAboutDialog2BeforeExecute(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog2BeforeExecute');
+end;
+
+procedure TForm2.OlfAboutDialog2CloseDialog;
+begin
+  ShowMessage('OlfAboutDialog2CloseDialog');
+end;
+
+procedure TForm2.OlfAboutDialog2FormActivate(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog2FormActivate');
+end;
+
+procedure TForm2.OlfAboutDialog2FormClose(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog2FormClose');
+end;
+
+procedure TForm2.OlfAboutDialog2FormCreate(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog2FormCreate');
+end;
+
+procedure TForm2.OlfAboutDialog2FormShow(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog2FormShow');
+end;
+
+procedure TForm2.OlfAboutDialog2URLClick(const AURL: string);
+begin
+  ShowMessage(AURL);
 end;
 
 initialization
