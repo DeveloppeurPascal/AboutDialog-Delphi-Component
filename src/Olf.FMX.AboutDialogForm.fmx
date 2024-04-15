@@ -10,9 +10,11 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnActivate = FormActivate
   OnCreate = FormCreate
   OnClose = FormClose
   OnResize = FormResize
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object zoneLogo: TLayout
     Align = MostLeft

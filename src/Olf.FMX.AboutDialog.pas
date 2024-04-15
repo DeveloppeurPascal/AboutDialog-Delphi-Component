@@ -53,6 +53,12 @@ type
     FonURLClick: TOlfAboutDialogURLClickEvent;
     FLangue: TOlfAboutDialogLang;
     FCopyright: string;
+    FonFormClose: TNotifyEvent;
+    FonFormShow: TNotifyEvent;
+    FonBeforeExecute: TNotifyEvent;
+    FonFormActivate: TNotifyEvent;
+    FonFormCreate: TNotifyEvent;
+    FonAfterExecute: TNotifyEvent;
     procedure SetDescription(const Value: tstrings);
     procedure SetImage(const Value: TImage);
     procedure SetImageList(const Value: TCustomImageList);
@@ -67,6 +73,12 @@ type
     procedure SetonURLClick(const Value: TOlfAboutDialogURLClickEvent);
     procedure SetLangue(const Value: TOlfAboutDialogLang);
     procedure SetCopyright(const Value: string);
+    procedure SetonAfterExecute(const Value: TNotifyEvent);
+    procedure SetonBeforeExecute(const Value: TNotifyEvent);
+    procedure SetonFormActivate(const Value: TNotifyEvent);
+    procedure SetonFormClose(const Value: TNotifyEvent);
+    procedure SetonFormCreate(const Value: TNotifyEvent);
+    procedure SetonFormShow(const Value: TNotifyEvent);
     { Déclarations privées }
   protected
     procedure Notification(AComponent: TComponent;
@@ -152,6 +164,17 @@ type
     /// Copyright du projet, affiché sous le numéro de version
     /// </summary>
     property Copyright: string read FCopyright write SetCopyright;
+
+    property onBeforeExecute: TNotifyEvent read FonBeforeExecute
+      write SetonBeforeExecute;
+    property onAfterExecute: TNotifyEvent read FonAfterExecute
+      write SetonAfterExecute;
+    property onFormCreate: TNotifyEvent read FonFormCreate
+      write SetonFormCreate;
+    property onFormActivate: TNotifyEvent read FonFormActivate
+      write SetonFormActivate;
+    property onFormShow: TNotifyEvent read FonFormShow write SetonFormShow;
+    property onFormClose: TNotifyEvent read FonFormClose write SetonFormClose;
   end;
 
 procedure Register;
@@ -185,6 +208,12 @@ begin
   FonCloseDialog := nil;
   FonURLClick := nil;
   FCopyright := '';
+  FonBeforeExecute := nil;
+  FonFormCreate := nil;
+  FonFormActivate := nil;
+  FonFormShow := nil;
+  FonFormClose := nil;
+  FonAfterExecute := nil;
 end;
 
 destructor TOlfAboutDialog.Destroy;
@@ -199,41 +228,53 @@ function TOlfAboutDialog.Execute: boolean;
 var
   frmAboutBox: TOlfAboutDialogForm;
 begin
+  if assigned(FonBeforeExecute) then
+    FonBeforeExecute(Self);
   try
-    frmAboutBox := TOlfAboutDialogForm.Create(owner);
     try
-      frmAboutBox.Langue := Langue;
-      if assigned(Images) then
-        frmAboutBox.SetImageList(Images, ImageIndex)
-      else if assigned(Image) then
-        frmAboutBox.Image := Image
-      else
-        frmAboutBox.MultiResBitmap := MultiResBitmap;
-      frmAboutBox.Titre := Titre;
-      if frmAboutBox.Titre.IsEmpty and (owner is TCustomForm) then
-        frmAboutBox.Titre := (owner as TCustomForm).Caption;
-      frmAboutBox.VersionNumero := VersionNumero;
-      frmAboutBox.VersionDate := VersionDate;
-      frmAboutBox.URL := URL;
-      frmAboutBox.Description := Description.text;
-      frmAboutBox.Licence := Licence.text;
-      frmAboutBox.onCloseDialog := onCloseDialog;
-      frmAboutBox.onURLClick := onURLClick;
-      frmAboutBox.Copyright := Copyright;
+      frmAboutBox := TOlfAboutDialogForm.Create(owner);
+      try
+        frmAboutBox.Langue := Langue;
+        if assigned(Images) then
+          frmAboutBox.SetImageList(Images, ImageIndex)
+        else if assigned(Image) then
+          frmAboutBox.Image := Image
+        else
+          frmAboutBox.MultiResBitmap := MultiResBitmap;
+        frmAboutBox.Titre := Titre;
+        if frmAboutBox.Titre.IsEmpty and (owner is TCustomForm) then
+          frmAboutBox.Titre := (owner as TCustomForm).Caption;
+        frmAboutBox.VersionNumero := VersionNumero;
+        frmAboutBox.VersionDate := VersionDate;
+        frmAboutBox.URL := URL;
+        frmAboutBox.Description := Description.text;
+        frmAboutBox.Licence := Licence.text;
+        frmAboutBox.Copyright := Copyright;
+        frmAboutBox.onCloseDialog := onCloseDialog;
+        frmAboutBox.onURLClick := onURLClick;
+        frmAboutBox.onFormActivate := onFormActivate;
+        frmAboutBox.onFormShow := onFormShow;
+        frmAboutBox.onFormClose := onFormClose;
+        if assigned(FonFormCreate) then
+          FonFormCreate(frmAboutBox);
 {$IF Defined(IOS) or Defined(ANDROID)}
-      frmAboutBox.Show;
+        frmAboutBox.Show;
 {$ELSE}
-      frmAboutBox.showmodal;
+        frmAboutBox.showmodal;
 {$ENDIF}
-    finally
+      finally
 {$IF Defined(IOS) or Defined(ANDROID)}
 {$ELSE}
-      frmAboutBox.Free;
+        frmAboutBox.Free;
 {$ENDIF}
+      end;
+      result := true;
+    except
+      result := false;
     end;
-    result := true;
-  except
-    result := false;
+  finally
+    if assigned(FonAfterExecute) then
+      FonAfterExecute(Self);
   end;
 end;
 
@@ -294,10 +335,40 @@ begin
   FLicence.Assign(Value);
 end;
 
+procedure TOlfAboutDialog.SetonAfterExecute(const Value: TNotifyEvent);
+begin
+  FonAfterExecute := Value;
+end;
+
+procedure TOlfAboutDialog.SetonBeforeExecute(const Value: TNotifyEvent);
+begin
+  FonBeforeExecute := Value;
+end;
+
 procedure TOlfAboutDialog.SetonCloseDialog(const Value
   : TOlfAboutDialogCloseEvent);
 begin
   FonCloseDialog := Value;
+end;
+
+procedure TOlfAboutDialog.SetonFormActivate(const Value: TNotifyEvent);
+begin
+  FonFormActivate := Value;
+end;
+
+procedure TOlfAboutDialog.SetonFormClose(const Value: TNotifyEvent);
+begin
+  FonFormClose := Value;
+end;
+
+procedure TOlfAboutDialog.SetonFormCreate(const Value: TNotifyEvent);
+begin
+  FonFormCreate := Value;
+end;
+
+procedure TOlfAboutDialog.SetonFormShow(const Value: TNotifyEvent);
+begin
+  FonFormShow := Value;
 end;
 
 procedure TOlfAboutDialog.SetonURLClick(const Value
