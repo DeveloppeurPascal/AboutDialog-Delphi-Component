@@ -56,10 +56,10 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         Caption = 'lblURL'
         Color = clDefault
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlight
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'Segoe UI'
-        Font.Style = [fsUnderline]
+        Font.Style = []
         ParentColor = False
         ParentFont = False
         OnClick = lblURLClick
