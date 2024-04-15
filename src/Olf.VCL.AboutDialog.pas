@@ -176,6 +176,13 @@ begin
   FImageList := nil;
   FImageListName := '';
   FImageListIndex := -1;
+  FVersionNumero := '';
+  FTitre := '';
+  FVersionDate := '';
+  FURL := '';
+  FLangue := TOlfAboutDialogLang.EN;
+  FonCloseDialog := nil;
+  FonURLClick := nil;
 end;
 
 destructor TOlfAboutDialog.Destroy;
