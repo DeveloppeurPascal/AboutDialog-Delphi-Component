@@ -24,9 +24,20 @@ unit Olf.VCL.AboutDialogForm;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, VCL.Graphics, System.UITypes, VCL.ImgList,
-  VCL.Controls, VCL.Forms, VCL.Dialogs, VCL.ExtCtrls, VCL.StdCtrls, VCL.Buttons;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  VCL.Graphics,
+  System.UITypes,
+  VCL.ImgList,
+  VCL.Controls,
+  VCL.Forms,
+  VCL.Dialogs,
+  VCL.ExtCtrls,
+  VCL.StdCtrls,
+  VCL.Buttons;
 
 type
 {$SCOPEDENUMS on}

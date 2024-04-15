@@ -24,8 +24,14 @@ unit Olf.FMX.AboutDialog;
 interface
 
 uses
-  FMX.Types, System.SysUtils, System.Classes, FMX.ImgList, System.UITypes,
-  FMX.Objects, FMX.MultiResBitmap, Olf.FMX.AboutDialogForm;
+  FMX.Types,
+  System.SysUtils,
+  System.Classes,
+  FMX.ImgList,
+  System.UITypes,
+  FMX.Objects,
+  FMX.MultiResBitmap,
+  Olf.FMX.AboutDialogForm;
 
 type
 

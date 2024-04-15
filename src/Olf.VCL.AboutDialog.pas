@@ -24,8 +24,13 @@ unit Olf.VCL.AboutDialog;
 interface
 
 uses
-  system.UITypes, system.SysUtils, system.Classes,
-  VCL.ExtCtrls, VCL.ImgList, VCL.Graphics, Olf.VCL.AboutDialogForm;
+  system.UITypes,
+  system.SysUtils,
+  system.Classes,
+  VCL.ExtCtrls,
+  VCL.ImgList,
+  VCL.Graphics,
+  Olf.VCL.AboutDialogForm;
 
 type
 

@@ -24,10 +24,21 @@ unit Olf.FMX.AboutDialogForm;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants, FMX.MultiResBitmap,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Objects,
-  FMX.ImgList, FMX.Layouts, FMX.ExtCtrls, FMX.Controls.Presentation,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
+  System.Variants,
+  FMX.MultiResBitmap,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Objects,
+  FMX.ImgList,
+  FMX.Layouts,
+  FMX.ExtCtrls,
+  FMX.Controls.Presentation,
   FMX.StdCtrls;
 
 type
@@ -148,7 +159,8 @@ begin
   close;
 end;
 
-procedure TOlfAboutDialogForm.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TOlfAboutDialogForm.FormClose(Sender: TObject;
+  var Action: TCloseAction);
 begin
 {$IF Defined(IOS) or Defined(ANDROID)}
   TThread.ForceQueue(nil,
@@ -271,7 +283,8 @@ begin
   end;
 end;
 
-procedure TOlfAboutDialogForm.SetMultiResBitmap(const Value: TFixedMultiResBitmap);
+procedure TOlfAboutDialogForm.SetMultiResBitmap(const Value
+  : TFixedMultiResBitmap);
 begin
   if assigned(Value) then
   begin
