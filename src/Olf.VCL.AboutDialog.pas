@@ -157,6 +157,7 @@ procedure Register;
 implementation
 
 uses
+  VCL.Forms,
   VCL.Controls;
 
 procedure Register;
@@ -208,6 +209,8 @@ begin
       else
         frmAboutDialog.Picture := Picture;
       frmAboutDialog.Titre := Titre;
+      if frmAboutDialog.Titre.IsEmpty and (owner is TCustomForm) then
+        frmAboutDialog.Titre := (owner as TCustomForm).Caption;
       frmAboutDialog.VersionNumero := VersionNumero;
       frmAboutDialog.VersionDate := VersionDate;
       frmAboutDialog.URL := URL;
