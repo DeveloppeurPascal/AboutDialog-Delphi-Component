@@ -20,10 +20,10 @@
 // ********************************************************************************
 
 // ********************************************************************************
-// * 
-// * Some images from this project come from Adobe Stock. Don't use them outside 
+// *
+// * Some images from this project come from Adobe Stock. Don't use them outside
 // * this program without buying a license from them.
-// * 
+// *
 // ********************************************************************************
 
 unit Unit1;
@@ -57,6 +57,8 @@ type
     ImageCollection1: TImageCollection;
     VirtualImageList1: TVirtualImageList;
     Label1: TLabel;
+    OlfAboutDialog5: TOlfAboutDialog;
+    Button9: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -67,6 +69,15 @@ type
     procedure Button8Click(Sender: TObject);
     procedure OlfAboutDialog1URLClick(const AURL: string);
     procedure OlfAboutDialog1CloseDialog;
+    procedure Button9Click(Sender: TObject);
+    procedure OlfAboutDialog5AfterExecute(Sender: TObject);
+    procedure OlfAboutDialog5BeforeExecute(Sender: TObject);
+    procedure OlfAboutDialog5CloseDialog;
+    procedure OlfAboutDialog5FormActivate(Sender: TObject);
+    procedure OlfAboutDialog5FormClose(Sender: TObject);
+    procedure OlfAboutDialog5FormCreate(Sender: TObject);
+    procedure OlfAboutDialog5FormShow(Sender: TObject);
+    procedure OlfAboutDialog5URLClick(const AURL: string);
   private
     { Déclarations privées }
   public
@@ -94,6 +105,46 @@ procedure TForm1.OlfAboutDialog1URLClick(const AURL: string);
 begin
   if not AURL.isEmpty then
     url_Open_In_Browser(AURL);
+end;
+
+procedure TForm1.OlfAboutDialog5AfterExecute(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog5AfterExecute');
+end;
+
+procedure TForm1.OlfAboutDialog5BeforeExecute(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog5BeforeExecute');
+end;
+
+procedure TForm1.OlfAboutDialog5CloseDialog;
+begin
+  ShowMessage('OlfAboutDialog5CloseDialog');
+end;
+
+procedure TForm1.OlfAboutDialog5FormActivate(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog5FormActivate');
+end;
+
+procedure TForm1.OlfAboutDialog5FormClose(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog5FormClose');
+end;
+
+procedure TForm1.OlfAboutDialog5FormCreate(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog5FormCreate');
+end;
+
+procedure TForm1.OlfAboutDialog5FormShow(Sender: TObject);
+begin
+  ShowMessage('OlfAboutDialog5FormShow');
+end;
+
+procedure TForm1.OlfAboutDialog5URLClick(const AURL: string);
+begin
+  ShowMessage(AURL);
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -197,6 +248,11 @@ end;
 procedure TForm1.Button8Click(Sender: TObject);
 begin
   OlfAboutDialog4.Execute;
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+  OlfAboutDialog5.Execute;
 end;
 
 initialization
