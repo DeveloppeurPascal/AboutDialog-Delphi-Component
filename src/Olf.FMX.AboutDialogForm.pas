@@ -64,6 +64,7 @@ type
     pnlLicence: TRectangle;
     VertScrollBox2: TVertScrollBox;
     lblLicence: TLabel;
+    lblCopyright: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure lblURLClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -83,6 +84,8 @@ type
     FonCloseDialog: TOlfAboutDialogCloseEvent;
     FonURLClick: TOlfAboutDialogURLClickEvent;
     FLangue: TOlfAboutDialogLang;
+    FCopyright: string;
+    procedure SetCopyright(const Value: string);
     procedure SetonURLClick(const Value: TOlfAboutDialogURLClickEvent);
     procedure SetDescription(const Value: string);
     procedure SetImage(const Value: TImage);
@@ -113,6 +116,7 @@ type
     property onURLClick: TOlfAboutDialogURLClickEvent read FonURLClick
       write SetonURLClick;
     property Langue: TOlfAboutDialogLang read FLangue write SetLangue;
+    property Copyright: string read FCopyright write SetCopyright;
     procedure SetImageList(ImageList: TCustomImageList;
       ImageListIndex: System.UITypes.TImageIndex = -1);
   end;
@@ -201,6 +205,18 @@ procedure TOlfAboutDialogForm.lblURLClick(Sender: TObject);
 begin
   if assigned(FonURLClick) then
     FonURLClick(lblURL.Text);
+end;
+
+procedure TOlfAboutDialogForm.SetCopyright(const Value: string);
+begin
+  FCopyright := Value;
+  if FCopyright.IsEmpty then
+    lblCopyright.Visible := false
+  else
+  begin
+    lblCopyright.Text := FCopyright;
+    lblCopyright.Visible := true;
+  end;
 end;
 
 procedure TOlfAboutDialogForm.SetDescription(const Value: string);
