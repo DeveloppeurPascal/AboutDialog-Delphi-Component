@@ -319,6 +319,11 @@ procedure TOlfAboutDialogForm.SetonURLClick(const Value
   : TOlfAboutDialogURLClickEvent);
 begin
   FonURLClick := Value;
+
+  if assigned(FonURLClick) then
+    lblURL.Cursor := crHandPoint
+  else
+    lblURL.Cursor := crDefault;
 end;
 
 procedure TOlfAboutDialogForm.SetTitre(const Value: string);

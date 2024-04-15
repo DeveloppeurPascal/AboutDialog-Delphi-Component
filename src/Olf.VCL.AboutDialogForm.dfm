@@ -48,7 +48,6 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         Top = 85
         Width = 370
         Height = 15
-        Cursor = crHandPoint
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -64,6 +63,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         ParentColor = False
         ParentFont = False
         OnClick = lblURLClick
+        ExplicitWidth = 34
       end
       object lblVersion: TStaticText
         AlignWithMargins = True
@@ -142,6 +142,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
             Align = alTop
             Caption = 'lblDescription'
             WordWrap = True
+            ExplicitWidth = 73
           end
         end
       end
@@ -178,6 +179,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
             Align = alTop
             Caption = 'lblLicence'
             WordWrap = True
+            ExplicitWidth = 53
           end
         end
       end
