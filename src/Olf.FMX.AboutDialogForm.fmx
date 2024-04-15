@@ -180,6 +180,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
       Size.PlatformDefault = False
       TabOrder = 0
       Text = 'Fermer'
+      TextSettings.Trimming = None
       OnClick = btnCloseClick
     end
   end
@@ -201,7 +202,6 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
   object lblURL: TLabel
     Align = Top
     AutoSize = True
-    Cursor = crHandPoint
     StyledSettings = [Family, Size]
     HitTest = True
     Margins.Left = 5.000000000000000000
