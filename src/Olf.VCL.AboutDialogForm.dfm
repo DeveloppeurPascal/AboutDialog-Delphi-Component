@@ -45,13 +45,13 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
       object lblURL: TLabel
         AlignWithMargins = True
         Left = 5
-        Top = 85
+        Top = 89
         Width = 370
         Height = 15
         Margins.Left = 5
-        Margins.Top = 5
+        Margins.Top = 0
         Margins.Right = 5
-        Margins.Bottom = 5
+        Margins.Bottom = 0
         Align = alTop
         Caption = 'lblURL'
         Color = clDefault
@@ -63,21 +63,23 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         ParentColor = False
         ParentFont = False
         OnClick = lblURLClick
+        ExplicitTop = 85
         ExplicitWidth = 34
       end
       object lblVersion: TStaticText
         AlignWithMargins = True
         Left = 5
-        Top = 56
+        Top = 51
         Width = 370
         Height = 19
         Margins.Left = 5
-        Margins.Top = 5
+        Margins.Top = 0
         Margins.Right = 5
-        Margins.Bottom = 5
+        Margins.Bottom = 0
         Align = alTop
         Caption = 'lblVersion'
         TabOrder = 0
+        ExplicitTop = 56
       end
       object lblTitre: TStaticText
         AlignWithMargins = True
@@ -99,6 +101,22 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         ParentFont = False
         ShowAccelChar = False
         TabOrder = 1
+      end
+      object lblCopyright: TStaticText
+        AlignWithMargins = True
+        Left = 5
+        Top = 70
+        Width = 370
+        Height = 19
+        Margins.Left = 5
+        Margins.Top = 0
+        Margins.Right = 5
+        Margins.Bottom = 0
+        Align = alTop
+        Caption = 'lblCopyright'
+        TabOrder = 2
+        ExplicitTop = 85
+        ExplicitWidth = 70
       end
     end
     object pnlclient: TPanel

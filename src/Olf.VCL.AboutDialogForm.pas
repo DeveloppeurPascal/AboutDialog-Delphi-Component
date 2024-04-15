@@ -62,6 +62,7 @@ type
     pnlTop: TPanel;
     pnlclient: TPanel;
     pnlBottom: TPanel;
+    lblCopyright: TStaticText;
     procedure lblURLClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
@@ -82,6 +83,8 @@ type
     FonCloseDialog: TOlfAboutDialogCloseEvent;
     FonURLClick: TOlfAboutDialogURLClickEvent;
     FLangue: TOlfAboutDialogLang;
+    FCopyright: string;
+    procedure SetCopyright(const Value: string);
     procedure SetVersionDate(const Value: string);
     procedure SetDescription(const Value: string);
     procedure SetLicence(const Value: string);
@@ -112,6 +115,7 @@ type
     property onURLClick: TOlfAboutDialogURLClickEvent read FonURLClick
       write SetonURLClick;
     property Langue: TOlfAboutDialogLang read FLangue write SetLangue;
+    property Copyright: string read FCopyright write SetCopyright;
     procedure SetImageList(ImageList: TCustomImageList;
       ImageListIndex: System.UITypes.TImageIndex = -1;
       ImageListName: TImageName = '');
@@ -156,6 +160,9 @@ begin
   if lblURL.visible then
     hauteur := hauteur + lblURL.Margins.Top + lblURL.Height +
       lblURL.Margins.Bottom;
+  if lblCopyright.visible then
+    hauteur := hauteur + lblCopyright.Margins.Top + lblCopyright.Height +
+      lblCopyright.Margins.Bottom;
   pnlTop.Height := hauteur;
 end;
 
@@ -252,6 +259,19 @@ begin
       FVersionDate
   else
     lblVersion.caption := '';
+  CalculeHauteurEntete;
+end;
+
+procedure TOlfAboutDialogForm.SetCopyright(const Value: string);
+begin
+  FCopyright := Value;
+  if FCopyright.IsEmpty then
+    lblCopyright.visible := false
+  else
+  begin
+    lblCopyright.caption := FURL;
+    lblCopyright.visible := true;
+  end;
   CalculeHauteurEntete;
 end;
 

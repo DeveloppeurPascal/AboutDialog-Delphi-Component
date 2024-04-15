@@ -51,6 +51,7 @@ type
     FonCloseDialog: TOlfAboutDialogCloseEvent;
     FonURLClick: TOlfAboutDialogURLClickEvent;
     FLangue: TOlfAboutDialogLang;
+    FCopyright: string;
     procedure SetVersionDate(const Value: string);
     procedure SetImage(const Value: TImage);
     procedure SetDescription(const Value: tstrings);
@@ -65,6 +66,7 @@ type
     procedure SetonCloseDialog(const Value: TOlfAboutDialogCloseEvent);
     procedure SetonURLClick(const Value: TOlfAboutDialogURLClickEvent);
     procedure SetLangue(const Value: TOlfAboutDialogLang);
+    procedure SetCopyright(const Value: string);
     { Déclarations privées }
   protected
     procedure Notification(AComponent: TComponent;
@@ -150,6 +152,10 @@ type
     /// Langue des textes affichés par la boite de dialogue
     /// </summary>
     property Langue: TOlfAboutDialogLang read FLangue write SetLangue;
+    /// <summary>
+    /// Copyright du projet, affiché sous le numéro de version
+    /// </summary>
+    property Copyright: string read FCopyright write SetCopyright;
   end;
 
 procedure Register;
@@ -184,6 +190,7 @@ begin
   FLangue := TOlfAboutDialogLang.EN;
   FonCloseDialog := nil;
   FonURLClick := nil;
+  FCopyright := '';
 end;
 
 destructor TOlfAboutDialog.Destroy;
@@ -218,6 +225,7 @@ begin
       frmAboutDialog.Licence := Licence.text;
       frmAboutDialog.onCloseDialog := onCloseDialog;
       frmAboutDialog.onURLClick := onURLClick;
+      frmAboutDialog.Copyright := Copyright;
       frmAboutDialog.showmodal;
     finally
       frmAboutDialog.Free;
@@ -280,6 +288,11 @@ end;
 procedure TOlfAboutDialog.SetPicture(const Value: TPicture);
 begin
   FPicture.Assign(Value);
+end;
+
+procedure TOlfAboutDialog.SetCopyright(const Value: string);
+begin
+  FCopyright := Value;
 end;
 
 procedure TOlfAboutDialog.SetDescription(const Value: tstrings);
