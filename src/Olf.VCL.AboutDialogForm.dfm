@@ -12,7 +12,10 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poOwnerFormCenter
+  OnActivate = FormActivate
+  OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 15
   object imgLogo: TImage
     Left = 0
@@ -63,7 +66,6 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         ParentColor = False
         ParentFont = False
         OnClick = lblURLClick
-        ExplicitTop = 85
         ExplicitWidth = 34
       end
       object lblVersion: TStaticText
@@ -79,7 +81,6 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         Align = alTop
         Caption = 'lblVersion'
         TabOrder = 0
-        ExplicitTop = 56
       end
       object lblTitre: TStaticText
         AlignWithMargins = True
@@ -115,8 +116,6 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         Align = alTop
         Caption = 'lblCopyright'
         TabOrder = 2
-        ExplicitTop = 85
-        ExplicitWidth = 70
       end
     end
     object pnlclient: TPanel

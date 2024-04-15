@@ -68,7 +68,12 @@ type
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure btnCloseClick(Sender: TObject);
-  private type
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormActivate(Sender: TObject);
+  private
+
+    type
     TTxtID = (APropos, Version, Du, VersionDu, BoutonFermer);
 
   var
@@ -84,6 +89,12 @@ type
     FonURLClick: TOlfAboutDialogURLClickEvent;
     FLangue: TOlfAboutDialogLang;
     FCopyright: string;
+    FonFormClose: TNotifyEvent;
+    FonFormShow: TNotifyEvent;
+    FonFormActivate: TNotifyEvent;
+    procedure SetonFormActivate(const Value: TNotifyEvent);
+    procedure SetonFormClose(const Value: TNotifyEvent);
+    procedure SetonFormShow(const Value: TNotifyEvent);
     procedure SetCopyright(const Value: string);
     procedure SetVersionDate(const Value: string);
     procedure SetDescription(const Value: string);
@@ -98,10 +109,8 @@ type
     procedure SetonCloseDialog(const Value: TOlfAboutDialogCloseEvent);
     procedure SetonURLClick(const Value: TOlfAboutDialogURLClickEvent);
     procedure SetLangue(const Value: TOlfAboutDialogLang);
-    { Déclarations privées }
     function getTraduction(TxtID: TTxtID): string;
   public
-    { Déclarations publiques }
     property Titre: string read FTitre write SetTitre;
     property VersionNumero: string read FVersionNumero write SetVersionNumero;
     property VersionDate: string read FVersionDate write SetVersionDate;
@@ -116,6 +125,12 @@ type
       write SetonURLClick;
     property Langue: TOlfAboutDialogLang read FLangue write SetLangue;
     property Copyright: string read FCopyright write SetCopyright;
+
+    property onFormActivate: TNotifyEvent read FonFormActivate
+      write SetonFormActivate;
+    property onFormShow: TNotifyEvent read FonFormShow write SetonFormShow;
+    property onFormClose: TNotifyEvent read FonFormClose write SetonFormClose;
+
     procedure SetImageList(ImageList: TCustomImageList;
       ImageListIndex: System.UITypes.TImageIndex = -1;
       ImageListName: TImageName = '');
@@ -166,6 +181,19 @@ begin
   pnlTop.Height := hauteur;
 end;
 
+procedure TOlfAboutDialogForm.FormActivate(Sender: TObject);
+begin
+  if assigned(FonFormActivate) then
+    FonFormActivate(self);
+end;
+
+procedure TOlfAboutDialogForm.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if assigned(FonFormClose) then
+    FonFormClose(self);
+end;
+
 procedure TOlfAboutDialogForm.FormCreate(Sender: TObject);
 begin
   Titre := 'titre du logiciel';
@@ -178,6 +206,18 @@ begin
   Licence := '';
   Description := '';
   Langue := TOlfAboutDialogLang.FR;
+  Copyright := '';
+  FonCloseDialog := nil;
+  FonURLClick := nil;
+  FonFormActivate := nil;
+  FonFormShow := nil;
+  FonFormClose := nil;
+end;
+
+procedure TOlfAboutDialogForm.FormShow(Sender: TObject);
+begin
+  if assigned(FonFormShow) then
+    FonFormShow(self);
 end;
 
 function TOlfAboutDialogForm.getTraduction(TxtID: TTxtID): string;
@@ -269,7 +309,7 @@ begin
     lblCopyright.visible := false
   else
   begin
-    lblCopyright.caption := FURL;
+    lblCopyright.caption := FCopyright;
     lblCopyright.visible := true;
   end;
   CalculeHauteurEntete;
@@ -333,6 +373,21 @@ procedure TOlfAboutDialogForm.SetonCloseDialog(const Value
   : TOlfAboutDialogCloseEvent);
 begin
   FonCloseDialog := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonFormActivate(const Value: TNotifyEvent);
+begin
+  FonFormActivate := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonFormClose(const Value: TNotifyEvent);
+begin
+  FonFormClose := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonFormShow(const Value: TNotifyEvent);
+begin
+  FonFormShow := Value;
 end;
 
 procedure TOlfAboutDialogForm.SetonURLClick(const Value
