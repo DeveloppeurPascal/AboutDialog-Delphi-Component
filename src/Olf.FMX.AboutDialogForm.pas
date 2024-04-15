@@ -309,9 +309,17 @@ begin
   FonURLClick := Value;
 
   if assigned(FonURLClick) then
-    lblURL.Cursor := crHandPoint
+  begin
+    lblURL.Cursor := crHandPoint;
+    lblURL.TextSettings.Font.Style := [TFontStyle.fsUnderline];
+    lblURL.TextSettings.FontColor := talphacolors.Blue;
+  end
   else
+  begin
     lblURL.Cursor := crDefault;
+    lblURL.TextSettings.Font.Style := [];
+    lblURL.TextSettings.FontColor := talphacolors.Black;
+  end;
 end;
 
 procedure TOlfAboutDialogForm.SetTitre(const Value: string);
