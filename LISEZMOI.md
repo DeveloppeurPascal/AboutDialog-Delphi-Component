@@ -1,4 +1,4 @@
-# Composant Delphi TOlfAboutDialog
+# Boite de dialogue "à propos" sous forme de composant Delphi
 
 [This page in english.](README.md)
 
@@ -14,11 +14,9 @@ Si vous êtes intéressé par la création de composants ou par le code de TOlfA
 
 Dans le dossier /packages vous trouverez les sources des paquets à compiler puis installer pour utiliser les composants TOlfAboutDialog dans vos projets VCL ou FireMonkey.
 
-Dans le dossier /sources vous trouverez les sources des composants et leurs dépendances.
+Dans le dossier /src vous trouverez les sources des composants et leurs dépendances.
 
 Dans le dossier /samples vous trouverez des projets de démo d'utilisation de ces composants comme composants ou en direct sous forme de code. Vous pouvez vous en inspirer pour vos projets.
-
-Le fichier TODO.md contient les modifications prévues pour une version ultérieure.
 
 Le dossier CHANGELOG contient les modifications faites sur les versions du projet. Si vous faites une mise à jour des composants, jetez y un oeil pour savoir ce qu'il s'est passé depuis votre précédente installation.
 
@@ -32,20 +30,35 @@ Les sources des paquets de composants se trouvent dans le dossier /packages. Vou
 
 Vous n'êtes pas obligés d'installer les deux versions. Si vous ne faites que des projets VCL n'installez que le paquet VCL. Si vous ne faites que des projets FireMonkey n'installez que le paquet FMX.
 
-Les sources des composants se trouvent dans le dossier /sources. Si vous voulez juste les manipuler par code vous n'avez pas besoin d'installer les paquets. Utilisez simplement les fichiers sources dans vos projets.
+Les sources des composants se trouvent dans le dossier /src. Si vous voulez juste les manipuler par code vous n'avez pas besoin d'installer les paquets. Utilisez simplement les fichiers sources dans vos projets.
 
 Pour installer un paquet de composant :
 - ouvrez le source du paquet dans l'IDE de Delphi ou RAD Studio
 - désinstallez le paquet s'il était déjà installé (clic droit, puis "désinstaller" sur le paquet depuis le gestionnaire de projets)
 - compilez le paquet
 - installez le paquet (clic droit, puis "installer" sur le paquet depuis le gestionnaire de projets)
-- ajoutez les sources des composants dans votre dossier de sources ou le chemin vers le dossier /sources dans le chemin de recherche par défaut dans les options de l'environnement (préférable) ou les options de vos projets (pour chaque projet)
+- ajoutez les sources des composants dans votre dossier de sources ou le chemin vers le dossier /src dans le chemin de recherche par défaut dans les options de l'environnement (préférable) ou les options de vos projets (pour chaque projet)
 
 ## Dépendances
 
 Ce dépôt de code dépend des dépôts suivants :
 
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) est utlisé par les projets de démo et doit être présent dans le dossier ./samples/lib-externes/librairies
+
+## Licence d'utilisation de ce dépôt de code et de son contenu
+
+Ces codes sources sont distribués sous licence [AGPL 3.0 ou ultérieure] (https://choosealicense.com/licenses/agpl-3.0/).
+
+Vous êtes globalement libre d'utiliser le contenu de ce dépôt de code n'importe où à condition :
+* d'en faire mention dans vos projets
+* de diffuser les modifications apportées aux fichiers fournis dans ce projet sous licence AGPL (en y laissant les mentions de copyright d'origine (auteur, lien vers ce dépôt, licence) obligatoirement complétées par les vôtres)
+* de diffuser les codes sources de vos créations sous licence AGPL
+
+Si cette licence ne convient pas à vos besoins vous pouvez acheter un droit d'utilisation de ce projet sous la licence [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) ou une licence commerciale dédiée ([contactez l'auteur](https://developpeur-pascal.fr/nous-contacter.php) pour discuter de vos besoins).
+
+Ces codes sources sont fournis en l'état sans garantie d'aucune sorte.
+
+Certains éléments inclus dans ce dépôt peuvent dépendre de droits d'utilisation de tiers (images, sons, ...). Ils ne sont pas réutilisables dans vos projets sauf mention contraire.
 
 ## Comment demander une nouvelle fonctionnalité, signaler un bogue ou une faille de sécurité ?
 
@@ -54,12 +67,6 @@ Si vous voulez une réponse du propriétaire de ce dépôt la meilleure façon d
 Si vous avez trouvé une faille de sécurité n'en parlez pas en public avant qu'un correctif n'ait été déployé ou soit disponible. [Contactez l'auteur du dépôt en privé](https://developpeur-pascal.fr/nous-contacter.php) pour expliquer votre trouvaille.
 
 Vous pouvez aussi cloner ce dépôt de code et participer à ses évolutions en soumettant vos modifications si vous le désirez. Lisez les explications dans le fichier [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Modèle de licence double
-
-Ce projet est distribué sous licence [AGPL 3.0 ou ultérieure] (https://choosealicense.com/licenses/agpl-3.0/).
-
-Si vous voulez l'utiliser en totalité ou en partie dans vos projets mais ne voulez pas en partager les sources ou ne voulez pas distribuer votre projet sous la même licence, vous pouvez acheter le droit de l'utiliser sous la licence [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) ou une licence dédiée ([contactez l'auteur](https://developpeur-pascal.fr/nous-contacter.php) pour discuter de vos besoins).
 
 ## Supportez ce projet et son auteur
 

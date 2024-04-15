@@ -1,4 +1,4 @@
-# TOlfAboutDialog Delphi Component
+# "About" dialog box as a Delphi Component
 
 [Cette page en français.](LISEZMOI.md)
 
@@ -14,7 +14,7 @@ If you are interested in components creation or behind the code for TOlfAboutDia
 
 In the /packages folder you will find the sources of the packages to compile and install to use the TOlfAboutDialog components in your VCL or FireMonkey projects.
 
-In the /sources folder you will find the sources of the components and their dependencies.
+In the /src folder you will find the sources of the components and their dependencies.
 
 In the /samples folder you will find demo projects of using these components as components or as live code. You can use them as inspiration for your own projects.
 
@@ -32,20 +32,35 @@ The sources of the component packages can be found in the /packages folder. Ther
 
 You do not have to install both components. If you only do VCL projects, install only the VCL package. If you only do FireMonkey projects, install only the FMX package.
 
-The sources of the components are in the /sources folder. If you just want to manipulate them by code you do not need to install the packages. Just use the source files in your projects.
+The sources of the components are in the /src folder. If you just want to manipulate them by code you do not need to install the packages. Just use the source files in your projects.
 
 To install a component package:
 - open the package source in the Delphi IDE or RAD Studio
 - uninstall the package if it was already installed (right click, then "uninstall" on the package from the project manager)
 - compile the package
 - install the package (right click, then "install" on the package from the project manager)
-- add the sources of the components in your sources folder or the path to the /sources folder in the default search path in the IDE options (preferable) or your project options (for each project)
+- add the sources of the components in your sources folder or the path to the /src folder in the default search path in the IDE options (preferable) or your project options (for each project)
 
 ## Dependencies
 
 This project depends on :
 
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) is used by the sample projects and must be in the folder ./samples/lib-externes/librairies
+
+## License to use this code repository and its contents
+
+This source code is distributed under the [AGPL 3.0 or later license](https://choosealicense.com/licenses/agpl-3.0/).
+
+You are generally free to use the contents of this code repository anywhere, provided that:
+* you mention it in your projects
+* distribute the modifications made to the files supplied in this project under the AGPL license (leaving the original copyright notices (author, link to this repository, license) which must be supplemented by your own)
+* to distribute the source code of your creations under the AGPL license.
+
+If this license doesn't suit your needs, you can purchase the right to use this project under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) or a dedicated commercial license ([contact the author](https://developpeur-pascal.fr/nous-contacter.php) to explain your needs).
+
+These source codes are provided as is, without warranty of any kind.
+
+Certain elements included in this repository may be subject to third-party usage rights (images, sounds, etc.). They are not reusable in your projects unless otherwise stated.
 
 ## How to ask a new feature, report a bug or a security issue ?
 
@@ -54,12 +69,6 @@ If you want an answer from the project owner the best way to ask for a new featu
 If you found a security issue please don't report it publicly before a patch is available. Explain the case by [sending a private message to the author](https://developpeur-pascal.fr/nous-contacter.php).
 
 You also can fork the repository and contribute by submitting pull requests if you want to help. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file.
-
-## Dual licensing model
-
-This project is distributed under [AGPL 3.0 or later](https://choosealicense.com/licenses/agpl-3.0/) license.
-
-If you want to use it or a part of it in your projects but don't want to share the sources or don't want to distribute your project under the same license you can buy the right to use it under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) or a dedicated license ([contact the author](https://developpeur-pascal.fr/nous-contacter.php) to explain your needs).
 
 ## Support the project and its author
 
