@@ -25,6 +25,7 @@ package Olf.FMX.AboutBoxPackage;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'About dialog Delphi FireMonkey component from Patrick PREMARTIN'}
 {$IMPLICITBUILD ON}
 
 requires
