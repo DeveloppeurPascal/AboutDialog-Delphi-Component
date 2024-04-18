@@ -25,6 +25,7 @@ package Olf.VCL.AboutBoxPackage;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'About dialog Delphi VCL component from Patrick PREMARTIN'}
 {$IMPLICITBUILD ON}
 
 requires
