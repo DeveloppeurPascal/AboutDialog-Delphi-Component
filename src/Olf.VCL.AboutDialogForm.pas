@@ -131,9 +131,13 @@ type
     property onFormShow: TNotifyEvent read FonFormShow write SetonFormShow;
     property onFormClose: TNotifyEvent read FonFormClose write SetonFormClose;
 
+{$IF CompilerVersion >= 34.0}
     procedure SetImageList(ImageList: TCustomImageList;
       ImageListIndex: System.UITypes.TImageIndex = -1;
-      ImageListName: TImageName = '');
+      ImageListName: TImageName = ''); overload;
+{$ENDIF}
+    procedure SetImageList(ImageList: TCustomImageList;
+      ImageListIndex: System.UITypes.TImageIndex = -1); overload;
   end;
 
 var
@@ -238,12 +242,16 @@ begin
 end;
 
 procedure TOlfAboutDialogForm.SetImage(const Value: TImage);
+{$IF CompilerVersion >= 32.0}
+// Delphi 10.2 Tokyo and after
 var
   ms: TMemoryStream;
+{$ENDIF}
 begin
   if assigned(Value) then
   begin
     FImage := Value;
+{$IF CompilerVersion >= 32.0}
     ms := TMemoryStream.Create;
     try
       FImage.Picture.SaveToStream(ms);
@@ -252,11 +260,16 @@ begin
     finally
       ms.Free;
     end;
+{$ELSE}
+    imgLogo.Picture.Assign(FImage.Picture);
+{$ENDIF}
     imgLogo.visible := true;
   end
   else
     FImage := nil;
 end;
+
+{$IF CompilerVersion >= 34.0}
 
 procedure TOlfAboutDialogForm.SetImageList(ImageList: TCustomImageList;
   ImageListIndex: System.UITypes.TImageIndex; ImageListName: TImageName);
@@ -269,6 +282,17 @@ begin
       ImageList.GetBitmap(ImageListIndex, imgLogo.Picture.Bitmap);
       imgLogo.visible := true;
     end;
+  end;
+end;
+{$ENDIF}
+
+procedure TOlfAboutDialogForm.SetImageList(ImageList: TCustomImageList;
+  ImageListIndex: System.UITypes.TImageIndex);
+begin
+  if assigned(ImageList) and (ImageListIndex > -1) then
+  begin
+    ImageList.GetBitmap(ImageListIndex, imgLogo.Picture.Bitmap);
+    imgLogo.visible := true;
   end;
 end;
 

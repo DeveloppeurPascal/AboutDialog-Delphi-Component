@@ -34,7 +34,13 @@ uses
 
 type
 
+{$IF CompilerVersion >= 33.0}
+  // Delphi 10.3 Rio and after
   [ComponentPlatformsAttribute(pfidWindows)]
+{$ELSE}
+  [ComponentPlatformsAttribute(pidWin32 + pidWin64)]
+{$ENDIF}
+
   TOlfAboutDialog = class(TComponent)
   private
     FVersionNumero: string;
@@ -46,7 +52,10 @@ type
     FURL: string;
     FPicture: TPicture;
     FImageList: TCustomImageList;
+{$IF CompilerVersion >= 34.0}
+    // Delphi 10.4 Sydney and after
     FImageListName: TImageName;
+{$ENDIF}
     FImageListIndex: system.UITypes.TImageIndex;
     FonCloseDialog: TOlfAboutDialogCloseEvent;
     FonURLClick: TOlfAboutDialogURLClickEvent;
@@ -68,7 +77,9 @@ type
     procedure SetPicture(const Value: TPicture);
     procedure SetImageList(const Value: TCustomImageList);
     procedure SetImageListIndex(const Value: system.UITypes.TImageIndex);
+{$IF CompilerVersion >= 34.0}
     procedure SetImageListName(const Value: TImageName);
+{$ENDIF}
     procedure SetonCloseDialog(const Value: TOlfAboutDialogCloseEvent);
     procedure SetonURLClick(const Value: TOlfAboutDialogURLClickEvent);
     procedure SetLangue(const Value: TOlfAboutDialogLang);
@@ -129,11 +140,13 @@ type
     /// </summary>
     property ImageIndex: system.UITypes.TImageIndex read FImageListIndex
       write SetImageListIndex default -1;
+{$IF CompilerVersion >= 34.0}
     /// <summary>
     /// Nom de l'image provenant de la liste d'images correspondant au logo à utiliser dans la boite de dialogue
     /// (le nom est prioritaire sur l'index s'il est renseigné et géré par la liste d'images)
     /// </summary>
     property ImageName: TImageName read FImageListName write SetImageListName;
+{$ENDIF}
     /// <summary>
     /// Adresse du site pour lequel on affiche un lien sous le numéro de version/date
     /// </summary>
@@ -204,7 +217,9 @@ begin
   FPicture := TPicture.Create;
   FImage := nil;
   FImageList := nil;
+{$IF CompilerVersion >= 34.0}
   FImageListName := '';
+{$ENDIF}
   FImageListIndex := -1;
   FVersionNumero := '';
   FTitre := '';
@@ -242,7 +257,11 @@ begin
       try
         frmAboutDialog.Langue := Langue;
         if assigned(Images) then
+{$IF CompilerVersion >= 34.0}
           frmAboutDialog.SetImageList(Images, ImageIndex, ImageName)
+{$ELSE}
+          frmAboutDialog.SetImageList(Images, ImageIndex)
+{$ENDIF}
         else if assigned(Image) then
           frmAboutDialog.Image := Image
         else
@@ -287,7 +306,9 @@ begin
     else if AComponent = FImageList then
     begin
       FImageList := nil;
+{$IF CompilerVersion >= 34.0}
       FImageListName := '';
+{$ENDIF}
       FImageListIndex := -1;
     end;
 end;
@@ -321,10 +342,13 @@ begin
   FImageListIndex := Value;
 end;
 
+{$IF CompilerVersion >= 34.0}
+
 procedure TOlfAboutDialog.SetImageListName(const Value: TImageName);
 begin
   FImageListName := Value;
 end;
+{$ENDIF}
 
 procedure TOlfAboutDialog.SetPicture(const Value: TPicture);
 begin
