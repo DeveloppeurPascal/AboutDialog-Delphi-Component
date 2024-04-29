@@ -9,6 +9,12 @@
         <Projects Include="vcl\AboutDialogVCLSample.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="VCL_Licenses_Buttons\VCLLicenseButtonsSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FMX_Licenses_Buttons\FMXLicenseButtonsSample.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +41,32 @@
     <Target Name="AboutDialogVCLSample:Make">
         <MSBuild Projects="vcl\AboutDialogVCLSample.dproj" Targets="Make"/>
     </Target>
+    <Target Name="VCLLicenseButtonsSample">
+        <MSBuild Projects="VCL_Licenses_Buttons\VCLLicenseButtonsSample.dproj"/>
+    </Target>
+    <Target Name="VCLLicenseButtonsSample:Clean">
+        <MSBuild Projects="VCL_Licenses_Buttons\VCLLicenseButtonsSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLLicenseButtonsSample:Make">
+        <MSBuild Projects="VCL_Licenses_Buttons\VCLLicenseButtonsSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXLicenseButtonsSample">
+        <MSBuild Projects="FMX_Licenses_Buttons\FMXLicenseButtonsSample.dproj"/>
+    </Target>
+    <Target Name="FMXLicenseButtonsSample:Clean">
+        <MSBuild Projects="FMX_Licenses_Buttons\FMXLicenseButtonsSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXLicenseButtonsSample:Make">
+        <MSBuild Projects="FMX_Licenses_Buttons\FMXLicenseButtonsSample.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AboutDialogFMXSample;AboutDialogVCLSample"/>
+        <CallTarget Targets="AboutDialogFMXSample;AboutDialogVCLSample;VCLLicenseButtonsSample;FMXLicenseButtonsSample"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AboutDialogFMXSample:Clean;AboutDialogVCLSample:Clean"/>
+        <CallTarget Targets="AboutDialogFMXSample:Clean;AboutDialogVCLSample:Clean;VCLLicenseButtonsSample:Clean;FMXLicenseButtonsSample:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AboutDialogFMXSample:Make;AboutDialogVCLSample:Make"/>
+        <CallTarget Targets="AboutDialogFMXSample:Make;AboutDialogVCLSample:Make;VCLLicenseButtonsSample:Make;FMXLicenseButtonsSample:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

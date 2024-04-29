@@ -31,12 +31,25 @@ unit Unit1;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, Vcl.Imaging.jpeg, System.ImageList,
-  Vcl.ImgList, Vcl.VirtualImageList, Vcl.BaseImageCollection,
-  Vcl.ImageCollection, Olf.Vcl.AboutDialog;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
+  Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg,
+  System.ImageList,
+  Vcl.ImgList,
+  Vcl.VirtualImageList,
+  Vcl.BaseImageCollection,
+  Vcl.ImageCollection,
+  Olf.Vcl.AboutDialog;
 
 type
   TForm1 = class(TForm)
@@ -91,7 +104,10 @@ implementation
 
 {$R *.dfm}
 
-uses System.ioutils, u_urlOpen, Olf.Vcl.AboutDialogForm;
+uses
+  System.ioutils,
+  u_urlOpen,
+  Olf.Vcl.AboutDialogForm;
 
 var
   FrmAboutDialog: TOlfAboutDialogForm;
@@ -257,13 +273,15 @@ end;
 
 initialization
 
+FrmAboutDialog := nil;
 {$IFDEF DEBUG}
-  ReportMemoryLeaksOnShutdown := true;
+ReportMemoryLeaksOnShutdown := true;
 {$ENDIF}
 
 finalization
 
-if assigned(FrmAboutDialog) then
-  FrmAboutDialog.Free;
+// The form is created with main form as owner.
+// if assigned(FrmAboutDialog) then
+// FrmAboutDialog.Free;
 
 end.
