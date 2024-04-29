@@ -72,7 +72,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
     Margins.Right = 5.000000000000000000
     Margins.Bottom = 5.000000000000000000
     Size.Width = 390.000000000000000000
-    Size.Height = 183.000000000000000000
+    Size.Height = 156.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 5
     OnResize = zoneTextesResize
@@ -172,18 +172,77 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
     Size.PlatformDefault = False
     TabOrder = 7
     object btnClose: TButton
-      Align = Right
+      Align = MostRight
       Cancel = True
       Default = True
       ModalResult = 8
-      Position.X = 270.000000000000000000
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 265.000000000000000000
+      Position.Y = 5.000000000000000000
       Size.Width = 120.000000000000000000
-      Size.Height = 40.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Fermer'
+      TextSettings.Trimming = None
+      OnClick = btnCloseClick
+    end
+    object btnLicenseInfo: TButton
+      Align = Right
+      Cancel = True
+      Default = True
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = -125.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Fermer'
+      TextSettings.Trimming = None
+      OnClick = btnLicenseInfoClick
+    end
+    object btnBuy: TButton
+      Align = Right
+      Cancel = True
+      Default = True
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Fermer'
+      TextSettings.Trimming = None
+      OnClick = btnBuyClick
+    end
+    object btnRegister: TButton
+      Align = Right
+      Cancel = True
+      Default = True
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 135.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = 'Fermer'
       TextSettings.Trimming = None
-      OnClick = btnCloseClick
+      OnClick = btnRegisterClick
     end
   end
   object lblVersion: TLabel
@@ -230,5 +289,19 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
     Size.PlatformDefault = False
     Text = 'lblCopyright'
     TabOrder = 2
+  end
+  object lblFooter: TLabel
+    Align = Bottom
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 205.000000000000000000
+    Position.Y = 278.000000000000000000
+    Size.Width = 390.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'lblFooter'
+    TabOrder = 8
   end
 end

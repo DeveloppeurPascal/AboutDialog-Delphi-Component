@@ -2,7 +2,7 @@
 // *
 // * About Dialog component
 // *
-// * (c) 2022 Patrick Premartin
+// * (c) 2022-2024 Patrick Premartin
 // *
 // ********************************************************************************
 // *
@@ -41,7 +41,18 @@ uses
 
 type
 {$SCOPEDENUMS on}
-  TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE);
+  TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE, Manual);
+  // TODO : add 'Automatic'
+  TOlfAboutDialogTxtID = (About, Version, Date, VersionDate, CloseButton,
+    Footer, LicenseInfoButton, BuyButton, RegisterButton);
+
+  TNotifyProc = reference to procedure(Sender: TObject);
+
+  TOlfAboutDialogGetTextEvent = function(Const ALang: TOlfAboutDialogLang;
+    Const ATxtID: TOlfAboutDialogTxtID): string of object;
+  TOlfAboutDialogGetTextProc = reference to function
+    (Const ALang: TOlfAboutDialogLang;
+    Const ATxtID: TOlfAboutDialogTxtID): string;
 
   TOlfAboutDialogURLClickEvent = procedure(const AURL: string) of object;
   TOlfAboutDialogCloseEvent = procedure of object;
@@ -63,6 +74,10 @@ type
     pnlclient: TPanel;
     pnlBottom: TPanel;
     lblCopyright: TStaticText;
+    btnLicenseInfo: TBitBtn;
+    btnBuy: TBitBtn;
+    btnRegister: TBitBtn;
+    lblFooter: TLabel;
     procedure lblURLClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
@@ -71,12 +86,10 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
+    procedure btnLicenseInfoClick(Sender: TObject);
+    procedure btnBuyClick(Sender: TObject);
+    procedure btnRegisterClick(Sender: TObject);
   private
-
-    type
-    TTxtID = (APropos, Version, Du, VersionDu, BoutonFermer);
-
-  var
     FVersionNumero: string;
     FTitre: string;
     FVersionDate: string;
@@ -92,6 +105,16 @@ type
     FonFormClose: TNotifyEvent;
     FonFormShow: TNotifyEvent;
     FonFormActivate: TNotifyEvent;
+    FonButtonLicenseClickProc: TNotifyEvent;
+    FonGetFooterTextProc: TOlfAboutDialogGetTextProc;
+    FonButtonLicenseClick: TNotifyEvent;
+    FonGetFooterText: TOlfAboutDialogGetTextEvent;
+    FonButtonRegisterClickProc: TNotifyEvent;
+    FonButtonRegisterClick: TNotifyEvent;
+    FonGetTextProc: TOlfAboutDialogGetTextProc;
+    FonGetText: TOlfAboutDialogGetTextEvent;
+    FonButtonBuyClickProc: TNotifyEvent;
+    FonButtonBuyClick: TNotifyEvent;
     procedure SetonFormActivate(const Value: TNotifyEvent);
     procedure SetonFormClose(const Value: TNotifyEvent);
     procedure SetonFormShow(const Value: TNotifyEvent);
@@ -109,7 +132,17 @@ type
     procedure SetonCloseDialog(const Value: TOlfAboutDialogCloseEvent);
     procedure SetonURLClick(const Value: TOlfAboutDialogURLClickEvent);
     procedure SetLangue(const Value: TOlfAboutDialogLang);
-    function getTraduction(TxtID: TTxtID): string;
+    function getTraduction(TxtID: TOlfAboutDialogTxtID): string;
+    procedure SetonButtonBuyClick(const Value: TNotifyEvent);
+    procedure SetonButtonBuyClickProc(const Value: TNotifyEvent);
+    procedure SetonButtonLicenseClick(const Value: TNotifyEvent);
+    procedure SetonButtonLicenseClickProc(const Value: TNotifyEvent);
+    procedure SetonButtonRegisterClick(const Value: TNotifyEvent);
+    procedure SetonButtonRegisterClickProc(const Value: TNotifyEvent);
+    procedure SetonGetFooterText(const Value: TOlfAboutDialogGetTextEvent);
+    procedure SetonGetFooterTextProc(const Value: TOlfAboutDialogGetTextProc);
+    procedure SetonGetText(const Value: TOlfAboutDialogGetTextEvent);
+    procedure SetonGetTextProc(const Value: TOlfAboutDialogGetTextProc);
   public
     property Titre: string read FTitre write SetTitre;
     property VersionNumero: string read FVersionNumero write SetVersionNumero;
@@ -138,15 +171,41 @@ type
 {$ENDIF}
     procedure SetImageList(ImageList: TCustomImageList;
       ImageListIndex: System.UITypes.TImageIndex = -1); overload;
-  end;
 
-var
-  OlfAboutDialogForm: TOlfAboutDialogForm;
+    property onButtonLicenseClick: TNotifyEvent read FonButtonLicenseClick
+      write SetonButtonLicenseClick;
+    property onButtonLicenseClickProc: TNotifyEvent
+      read FonButtonLicenseClickProc write SetonButtonLicenseClickProc;
+    property onButtonBuyClick: TNotifyEvent read FonButtonBuyClick
+      write SetonButtonBuyClick;
+    property onButtonBuyClickProc: TNotifyEvent read FonButtonBuyClickProc
+      write SetonButtonBuyClickProc;
+    property onButtonRegisterClick: TNotifyEvent read FonButtonRegisterClick
+      write SetonButtonRegisterClick;
+    property onButtonRegisterClickProc: TNotifyEvent
+      read FonButtonRegisterClickProc write SetonButtonRegisterClickProc;
+    property onGetText: TOlfAboutDialogGetTextEvent read FonGetText
+      write SetonGetText;
+    property onGetTextProc: TOlfAboutDialogGetTextProc read FonGetTextProc
+      write SetonGetTextProc;
+    property onGetFooterText: TOlfAboutDialogGetTextEvent read FonGetFooterText
+      write SetonGetFooterText;
+    property onGetFooterTextProc: TOlfAboutDialogGetTextProc
+      read FonGetFooterTextProc write SetonGetFooterTextProc;
+  end;
 
 implementation
 
 {$R *.dfm}
 { TOlfAboutDialog }
+
+procedure TOlfAboutDialogForm.btnBuyClick(Sender: TObject);
+begin
+  if assigned(FonButtonBuyClickProc) then
+    FonButtonBuyClickProc(Sender)
+  else if assigned(FonButtonBuyClick) then
+    FonButtonBuyClick(Sender);
+end;
 
 procedure TOlfAboutDialogForm.btnCloseClick(Sender: TObject);
 begin
@@ -163,6 +222,22 @@ begin
     Key := 0;
     close;
   end;
+end;
+
+procedure TOlfAboutDialogForm.btnLicenseInfoClick(Sender: TObject);
+begin
+  if assigned(FonButtonLicenseClickProc) then
+    FonButtonLicenseClickProc(Sender)
+  else if assigned(FonButtonLicenseClick) then
+    FonButtonLicenseClick(Sender);
+end;
+
+procedure TOlfAboutDialogForm.btnRegisterClick(Sender: TObject);
+begin
+  if assigned(FonButtonRegisterClickProc) then
+    FonButtonRegisterClickProc(Sender)
+  else if assigned(FonButtonRegisterClick) then
+    FonButtonRegisterClick(Sender);
 end;
 
 procedure TOlfAboutDialogForm.CalculeHauteurEntete;
@@ -216,15 +291,47 @@ begin
   FonFormActivate := nil;
   FonFormShow := nil;
   FonFormClose := nil;
+  FonButtonLicenseClickProc := nil;
+  FonButtonLicenseClick := nil;
+  FonButtonRegisterClickProc := nil;
+  FonButtonRegisterClick := nil;
+  FonButtonBuyClickProc := nil;
+  FonButtonBuyClick := nil;
+  FonGetFooterTextProc := nil;
+  FonGetFooterText := nil;
+  FonGetTextProc := nil;
+  FonGetText := nil;
 end;
 
 procedure TOlfAboutDialogForm.FormShow(Sender: TObject);
 begin
+  btnLicenseInfo.Caption :=
+    getTraduction(TOlfAboutDialogTxtID.LicenseInfoButton);
+  btnBuy.Caption := getTraduction(TOlfAboutDialogTxtID.BuyButton);
+  btnRegister.Caption := getTraduction(TOlfAboutDialogTxtID.RegisterButton);
+  btnClose.Caption := getTraduction(TOlfAboutDialogTxtID.CloseButton);
+
+  btnLicenseInfo.visible := assigned(onButtonLicenseClick) or
+    assigned(onButtonLicenseClickProc);
+  btnBuy.visible := assigned(onButtonBuyClick) or
+    assigned(onButtonBuyClickProc);
+  btnRegister.visible := assigned(onButtonRegisterClick) or
+    assigned(onButtonRegisterClickProc);
+
+  if assigned(onGetFooterTextProc) then
+    lblFooter.Caption := onGetFooterTextProc(FLangue,
+      TOlfAboutDialogTxtID.Footer)
+  else if assigned(onGetFooterText) then
+    lblFooter.Caption := onGetFooterText(FLangue, TOlfAboutDialogTxtID.Footer)
+  else
+    lblFooter.Caption := '';
+  lblFooter.visible := lblFooter.Caption <> '';
+
   if assigned(FonFormShow) then
     FonFormShow(self);
 end;
 
-function TOlfAboutDialogForm.getTraduction(TxtID: TTxtID): string;
+function TOlfAboutDialogForm.getTraduction(TxtID: TOlfAboutDialogTxtID): string;
 begin
 {$I traduction_textes.inc}
 end;
@@ -232,7 +339,7 @@ end;
 procedure TOlfAboutDialogForm.lblURLClick(Sender: TObject);
 begin
   if assigned(FonURLClick) then
-    FonURLClick(lblURL.caption);
+    FonURLClick(lblURL.Caption);
 end;
 
 procedure TOlfAboutDialogForm.SetVersionDate(const Value: string);
@@ -312,17 +419,17 @@ procedure TOlfAboutDialogForm.AfficheVersionEtVersionDate;
 begin
   if not FVersionNumero.IsEmpty then
   begin
-    lblVersion.caption := getTraduction(TOlfAboutDialogForm.TTxtID.Version) +
+    lblVersion.Caption := getTraduction(TOlfAboutDialogTxtID.Version) +
       FVersionNumero;
     if not FVersionDate.IsEmpty then
-      lblVersion.caption := lblVersion.caption +
-        getTraduction(TOlfAboutDialogForm.TTxtID.Du) + FVersionDate;
+      lblVersion.Caption := lblVersion.Caption +
+        getTraduction(TOlfAboutDialogTxtID.Date) + FVersionDate;
   end
   else if not FVersionDate.IsEmpty then
-    lblVersion.caption := getTraduction(TOlfAboutDialogForm.TTxtID.VersionDu) +
+    lblVersion.Caption := getTraduction(TOlfAboutDialogTxtID.VersionDate) +
       FVersionDate
   else
-    lblVersion.caption := '';
+    lblVersion.Caption := '';
   CalculeHauteurEntete;
 end;
 
@@ -333,7 +440,7 @@ begin
     lblCopyright.visible := false
   else
   begin
-    lblCopyright.caption := FCopyright;
+    lblCopyright.Caption := FCopyright;
     lblCopyright.visible := true;
   end;
   CalculeHauteurEntete;
@@ -351,7 +458,7 @@ begin
   else
   begin
     pnlDescription.visible := true;
-    lblDescription.caption := FDescription;
+    lblDescription.Caption := FDescription;
     if pnlLicence.visible then
     begin
       pnlDescription.Align := altop;
@@ -366,7 +473,7 @@ end;
 procedure TOlfAboutDialogForm.SetLangue(const Value: TOlfAboutDialogLang);
 begin
   FLangue := Value;
-  btnClose.caption := getTraduction(TOlfAboutDialogForm.TTxtID.BoutonFermer);
+  // TODO : add a global translation event
 end;
 
 procedure TOlfAboutDialogForm.SetLicence(const Value: string);
@@ -381,7 +488,7 @@ begin
   else
   begin
     pnlLicence.visible := true;
-    lblLicence.caption := FLicence;
+    lblLicence.Caption := FLicence;
     if pnlDescription.visible then
     begin
       pnlDescription.Align := altop;
@@ -391,6 +498,41 @@ begin
     else
       pnlLicence.Align := alclient;
   end;
+end;
+
+procedure TOlfAboutDialogForm.SetonButtonBuyClick(const Value: TNotifyEvent);
+begin
+  FonButtonBuyClick := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonButtonBuyClickProc
+  (const Value: TNotifyEvent);
+begin
+  FonButtonBuyClickProc := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonButtonLicenseClick
+  (const Value: TNotifyEvent);
+begin
+  FonButtonLicenseClick := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonButtonLicenseClickProc
+  (const Value: TNotifyEvent);
+begin
+  FonButtonLicenseClickProc := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonButtonRegisterClick
+  (const Value: TNotifyEvent);
+begin
+  FonButtonRegisterClick := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonButtonRegisterClickProc
+  (const Value: TNotifyEvent);
+begin
+  FonButtonRegisterClickProc := Value;
 end;
 
 procedure TOlfAboutDialogForm.SetonCloseDialog(const Value
@@ -412,6 +554,30 @@ end;
 procedure TOlfAboutDialogForm.SetonFormShow(const Value: TNotifyEvent);
 begin
   FonFormShow := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonGetFooterText(const Value
+  : TOlfAboutDialogGetTextEvent);
+begin
+  FonGetFooterText := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonGetFooterTextProc
+  (const Value: TOlfAboutDialogGetTextProc);
+begin
+  FonGetFooterTextProc := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonGetText(const Value
+  : TOlfAboutDialogGetTextEvent);
+begin
+  FonGetText := Value;
+end;
+
+procedure TOlfAboutDialogForm.SetonGetTextProc(const Value
+  : TOlfAboutDialogGetTextProc);
+begin
+  FonGetTextProc := Value;
 end;
 
 procedure TOlfAboutDialogForm.SetonURLClick(const Value
@@ -436,8 +602,8 @@ end;
 procedure TOlfAboutDialogForm.SetTitre(const Value: string);
 begin
   FTitre := Value;
-  lblTitre.caption := FTitre;
-  caption := getTraduction(TOlfAboutDialogForm.TTxtID.APropos) + FTitre;
+  lblTitre.Caption := FTitre;
+  Caption := getTraduction(TOlfAboutDialogTxtID.About) + FTitre;
   CalculeHauteurEntete;
 end;
 
@@ -448,7 +614,7 @@ begin
     lblURL.visible := false
   else
   begin
-    lblURL.caption := FURL;
+    lblURL.Caption := FURL;
     lblURL.visible := true;
   end;
   CalculeHauteurEntete;

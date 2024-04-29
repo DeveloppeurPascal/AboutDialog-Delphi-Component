@@ -2,7 +2,7 @@
 // *
 // * About Dialog component
 // *
-// * (c) 2022 Patrick Premartin
+// * (c) 2022-2024 Patrick Premartin
 // *
 // ********************************************************************************
 // *
@@ -67,6 +67,16 @@ type
     FonFormActivate: TNotifyEvent;
     FonFormCreate: TNotifyEvent;
     FonAfterExecute: TNotifyEvent;
+    FonButtonLicenseClickProc: TNotifyEvent;
+    FonButtonLicenseClick: TNotifyEvent;
+    FonGetFooterText: TOlfAboutDialogGetTextEvent;
+    FonButtonRegisterClickProc: TNotifyEvent;
+    FonButtonRegisterClick: TNotifyEvent;
+    FonGetText: TOlfAboutDialogGetTextEvent;
+    FonButtonBuyClickProc: TNotifyEvent;
+    FonButtonBuyClick: TNotifyEvent;
+    FonGetFooterTextProc: TOlfAboutDialogGetTextProc;
+    FonGetTextProc: TOlfAboutDialogGetTextProc;
     procedure SetVersionDate(const Value: string);
     procedure SetImage(const Value: TImage);
     procedure SetDescription(const Value: tstrings);
@@ -90,6 +100,16 @@ type
     procedure SetonFormClose(const Value: TNotifyEvent);
     procedure SetonFormCreate(const Value: TNotifyEvent);
     procedure SetonFormShow(const Value: TNotifyEvent);
+    procedure SetonButtonBuyClick(const Value: TNotifyEvent);
+    procedure SetonButtonBuyClickProc(const Value: TNotifyEvent);
+    procedure SetonButtonLicenseClick(const Value: TNotifyEvent);
+    procedure SetonButtonLicenseClickProc(const Value: TNotifyEvent);
+    procedure SetonButtonRegisterClick(const Value: TNotifyEvent);
+    procedure SetonButtonRegisterClickProc(const Value: TNotifyEvent);
+    procedure SetonGetFooterText(const Value: TOlfAboutDialogGetTextEvent);
+    procedure SetonGetText(const Value: TOlfAboutDialogGetTextEvent);
+    procedure SetonGetFooterTextProc(const Value: TOlfAboutDialogGetTextProc);
+    procedure SetonGetTextProc(const Value: TOlfAboutDialogGetTextProc);
     { Déclarations privées }
   protected
     procedure Notification(AComponent: TComponent;
@@ -109,6 +129,17 @@ type
     /// A appeler pour afficher la boite de dialogue
     /// </summary>
     function Execute: boolean;
+
+    property onButtonLicenseClickProc: TNotifyEvent
+      read FonButtonLicenseClickProc write SetonButtonLicenseClickProc;
+    property onButtonBuyClickProc: TNotifyEvent read FonButtonBuyClickProc
+      write SetonButtonBuyClickProc;
+    property onButtonRegisterClickProc: TNotifyEvent
+      read FonButtonRegisterClickProc write SetonButtonRegisterClickProc;
+    property onGetTextProc: TOlfAboutDialogGetTextProc read FonGetTextProc
+      write SetonGetTextProc;
+    property onGetFooterTextProc: TOlfAboutDialogGetTextProc
+      read FonGetFooterTextProc write SetonGetFooterTextProc;
   published
     { Déclarations publiées }
     /// <summary>
@@ -192,6 +223,17 @@ type
       write SetonFormActivate;
     property onFormShow: TNotifyEvent read FonFormShow write SetonFormShow;
     property onFormClose: TNotifyEvent read FonFormClose write SetonFormClose;
+
+    property onButtonLicenseClick: TNotifyEvent read FonButtonLicenseClick
+      write SetonButtonLicenseClick;
+    property onButtonBuyClick: TNotifyEvent read FonButtonBuyClick
+      write SetonButtonBuyClick;
+    property onButtonRegisterClick: TNotifyEvent read FonButtonRegisterClick
+      write SetonButtonRegisterClick;
+    property onGetText: TOlfAboutDialogGetTextEvent read FonGetText
+      write SetonGetText;
+    property onGetFooterText: TOlfAboutDialogGetTextEvent read FonGetFooterText
+      write SetonGetFooterText;
   end;
 
 procedure Register;
@@ -235,6 +277,16 @@ begin
   FonFormShow := nil;
   FonFormClose := nil;
   FonAfterExecute := nil;
+  FonButtonLicenseClickProc := nil;
+  FonButtonLicenseClick := nil;
+  FonButtonRegisterClickProc := nil;
+  FonButtonRegisterClick := nil;
+  FonButtonBuyClickProc := nil;
+  FonButtonBuyClick := nil;
+  FonGetFooterTextProc := nil;
+  FonGetFooterText := nil;
+  FonGetTextProc := nil;
+  FonGetText := nil;
 end;
 
 destructor TOlfAboutDialog.Destroy;
@@ -280,6 +332,16 @@ begin
         frmAboutDialog.onFormActivate := onFormActivate;
         frmAboutDialog.onFormShow := onFormShow;
         frmAboutDialog.onFormClose := onFormClose;
+        frmAboutDialog.onButtonLicenseClickProc := onButtonLicenseClickProc;
+        frmAboutDialog.onButtonLicenseClick := onButtonLicenseClick;
+        frmAboutDialog.onButtonRegisterClickProc := onButtonRegisterClickProc;
+        frmAboutDialog.onButtonRegisterClick := onButtonRegisterClick;
+        frmAboutDialog.onButtonBuyClickProc := onButtonBuyClickProc;
+        frmAboutDialog.onButtonBuyClick := onButtonBuyClick;
+        frmAboutDialog.onGetFooterTextProc := onGetFooterTextProc;
+        frmAboutDialog.onGetFooterText := onGetFooterText;
+        frmAboutDialog.onGetTextProc := onGetTextProc;
+        frmAboutDialog.onGetText := onGetText;
         if assigned(FonFormCreate) then
           FonFormCreate(frmAboutDialog);
         frmAboutDialog.showmodal;
@@ -385,6 +447,38 @@ begin
   FonBeforeExecute := Value;
 end;
 
+procedure TOlfAboutDialog.SetonButtonBuyClick(const Value: TNotifyEvent);
+begin
+  FonButtonBuyClick := Value;
+end;
+
+procedure TOlfAboutDialog.SetonButtonBuyClickProc(const Value: TNotifyEvent);
+begin
+  FonButtonBuyClickProc := Value;
+end;
+
+procedure TOlfAboutDialog.SetonButtonLicenseClick(const Value: TNotifyEvent);
+begin
+  FonButtonLicenseClick := Value;
+end;
+
+procedure TOlfAboutDialog.SetonButtonLicenseClickProc
+  (const Value: TNotifyEvent);
+begin
+  FonButtonLicenseClickProc := Value;
+end;
+
+procedure TOlfAboutDialog.SetonButtonRegisterClick(const Value: TNotifyEvent);
+begin
+  FonButtonRegisterClick := Value;
+end;
+
+procedure TOlfAboutDialog.SetonButtonRegisterClickProc
+  (const Value: TNotifyEvent);
+begin
+  FonButtonRegisterClickProc := Value;
+end;
+
 procedure TOlfAboutDialog.SetonCloseDialog(const Value
   : TOlfAboutDialogCloseEvent);
 begin
@@ -409,6 +503,30 @@ end;
 procedure TOlfAboutDialog.SetonFormShow(const Value: TNotifyEvent);
 begin
   FonFormShow := Value;
+end;
+
+procedure TOlfAboutDialog.SetonGetFooterText(const Value
+  : TOlfAboutDialogGetTextEvent);
+begin
+  FonGetFooterText := Value;
+end;
+
+procedure TOlfAboutDialog.SetonGetFooterTextProc(const Value
+  : TOlfAboutDialogGetTextProc);
+begin
+  FonGetFooterTextProc := Value;
+end;
+
+procedure TOlfAboutDialog.SetonGetText(const Value
+  : TOlfAboutDialogGetTextEvent);
+begin
+  FonGetText := Value;
+end;
+
+procedure TOlfAboutDialog.SetonGetTextProc(const Value
+  : TOlfAboutDialogGetTextProc);
+begin
+  FonGetTextProc := Value;
 end;
 
 procedure TOlfAboutDialog.SetonURLClick(const Value

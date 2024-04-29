@@ -37,6 +37,16 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
     BevelEdges = []
     BevelOuter = bvNone
     TabOrder = 0
+    object lblFooter: TLabel
+      AlignWithMargins = True
+      Left = 3
+      Top = 224
+      Width = 374
+      Height = 15
+      Align = alBottom
+      Caption = 'lblFooter'
+      ExplicitWidth = 47
+    end
     object pnlTop: TPanel
       Left = 0
       Top = 0
@@ -122,7 +132,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
       Left = 0
       Top = 110
       Width = 380
-      Height = 132
+      Height = 111
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
@@ -168,7 +178,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
         Left = 5
         Top = 56
         Width = 370
-        Height = 71
+        Height = 50
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -180,7 +190,7 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
           Left = 2
           Top = 2
           Width = 366
-          Height = 67
+          Height = 46
           Align = alClient
           TabOrder = 0
           object lblLicence: TLabel
@@ -209,19 +219,56 @@ object OlfAboutDialogForm: TOlfAboutDialogForm
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      DesignSize = (
-        380
-        41)
       object btnClose: TBitBtn
-        Left = 248
-        Top = 6
+        AlignWithMargins = True
+        Left = 257
+        Top = 3
         Width = 120
-        Height = 25
-        Anchors = [akRight, akBottom]
+        Height = 35
+        Align = alRight
         Kind = bkClose
         NumGlyphs = 2
         TabOrder = 0
         OnClick = btnCloseClick
+        OnKeyDown = btnCloseKeyDown
+      end
+      object btnLicenseInfo: TBitBtn
+        AlignWithMargins = True
+        Left = -121
+        Top = 3
+        Width = 120
+        Height = 35
+        Align = alRight
+        Caption = '&Fermer'
+        NumGlyphs = 2
+        TabOrder = 1
+        OnClick = btnLicenseInfoClick
+        OnKeyDown = btnCloseKeyDown
+      end
+      object btnBuy: TBitBtn
+        AlignWithMargins = True
+        Left = 5
+        Top = 3
+        Width = 120
+        Height = 35
+        Align = alRight
+        Caption = '&Fermer'
+        NumGlyphs = 2
+        TabOrder = 2
+        OnClick = btnBuyClick
+        OnKeyDown = btnCloseKeyDown
+      end
+      object btnRegister: TBitBtn
+        AlignWithMargins = True
+        Left = 131
+        Top = 3
+        Width = 120
+        Height = 35
+        Align = alRight
+        Caption = '&Fermer'
+        NumGlyphs = 2
+        TabOrder = 3
+        OnClick = btnRegisterClick
         OnKeyDown = btnCloseKeyDown
       end
     end
