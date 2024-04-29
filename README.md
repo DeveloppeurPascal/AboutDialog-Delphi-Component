@@ -47,6 +47,12 @@ This project depends on :
 
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) is used by the sample projects and must be in the folder ./samples/lib-externes/librairies
 
+## Compatibility
+
+This project has been tested and can be used with Delphi 10.1 Berlin, Delphi 10.2 Tokyo, Delphi 10.3 Rio, Delphi 10.4 Sydney, Delphi 11 Alexandria and Delphi 12 Athens.
+
+It could be used before Delphi 10.1 Berlin if you adapt some parts of the code.
+
 ## License to use this code repository and its contents
 
 This source code is distributed under the [AGPL 3.0 or later license](https://choosealicense.com/licenses/agpl-3.0/).

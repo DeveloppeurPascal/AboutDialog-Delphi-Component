@@ -45,6 +45,12 @@ Ce dépôt de code dépend des dépôts suivants :
 
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) est utlisé par les projets de démo et doit être présent dans le dossier ./samples/lib-externes/librairies
 
+## Compatibilité
+
+Ce projet a été testé et peut être utilisé avec Delphi 10.1 Berlin, Delphi 10.2 Tokyo, Delphi 10.3 Rio, Delphi 10.4 Sydney, Delphi 11 Alexandria and Delphi 12 Athens.
+
+Il doit pouvoir être utilisé avec les versions antérieures à Delphi 10.1 Berlin si vous adaptez le code source en conditionnant certaines parties trop récentes.
+
 ## Licence d'utilisation de ce dépôt de code et de son contenu
 
 Ces codes sources sont distribués sous licence [AGPL 3.0 ou ultérieure] (https://choosealicense.com/licenses/agpl-3.0/).
