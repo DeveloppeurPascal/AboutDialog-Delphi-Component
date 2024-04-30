@@ -4151,6 +4151,15 @@ object Form1: TForm1
     TabOrder = 8
     OnClick = Button9Click
   end
+  object Button10: TButton
+    Left = 8
+    Top = 335
+    Width = 75
+    Height = 25
+    Caption = 'Button10'
+    TabOrder = 9
+    OnClick = Button10Click
+  end
   object OlfAboutDialog1: TOlfAboutDialog
     Titre = 'Application de test'
     VersionDate = '10/03/2022'
@@ -28298,7 +28307,7 @@ object Form1: TForm1
     onFormActivate = OlfAboutDialog5FormActivate
     onFormShow = OlfAboutDialog5FormShow
     onFormClose = OlfAboutDialog5FormClose
-    Left = 376
+    Left = 416
     Top = 232
   end
 end

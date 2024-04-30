@@ -72,6 +72,7 @@ type
     Label1: TLabel;
     OlfAboutDialog5: TOlfAboutDialog;
     Button9: TButton;
+    Button10: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -91,6 +92,7 @@ type
     procedure OlfAboutDialog5FormCreate(Sender: TObject);
     procedure OlfAboutDialog5FormShow(Sender: TObject);
     procedure OlfAboutDialog5URLClick(const AURL: string);
+    procedure Button10Click(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -161,6 +163,12 @@ end;
 procedure TForm1.OlfAboutDialog5URLClick(const AURL: string);
 begin
   ShowMessage(AURL);
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+begin
+  OlfAboutDialog3.Langue := TOlfAboutDialogLang.auto;
+  OlfAboutDialog3.Execute;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -258,6 +266,7 @@ end;
 
 procedure TForm1.Button7Click(Sender: TObject);
 begin
+  OlfAboutDialog3.Langue := TOlfAboutDialogLang.it;
   OlfAboutDialog3.Execute;
 end;
 
