@@ -3,10 +3,19 @@ unit fMain;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Olf.Vcl.AboutDialog, Vcl.StdCtrls,
-  Olf.Vcl.AboutDialogForm, Vcl.Imaging.jpeg;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Olf.Vcl.AboutDialog,
+  Vcl.StdCtrls,
+  Olf.Vcl.AboutDialogForm,
+  Vcl.Imaging.jpeg;
 
 type
   TForm3 = class(TForm)
