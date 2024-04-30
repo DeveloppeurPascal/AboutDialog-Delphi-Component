@@ -142,6 +142,8 @@ type
     procedure SetonGetFooterTextProc(const Value: TOlfAboutDialogGetTextProc);
     procedure SetonGetText(const Value: TOlfAboutDialogGetTextEvent);
     procedure SetonGetTextProc(const Value: TOlfAboutDialogGetTextProc);
+  protected
+    procedure UpdateTextFields;
   public
     property Titre: string read FTitre write SetTitre;
     property VersionNumero: string read FVersionNumero write SetVersionNumero;
@@ -378,10 +380,7 @@ end;
 
 procedure TOlfAboutDialogForm.FormShow(Sender: TObject);
 begin
-  btnLicenseInfo.Text := getTraduction(TOlfAboutDialogTxtID.LicenseInfoButton);
-  btnBuy.Text := getTraduction(TOlfAboutDialogTxtID.BuyButton);
-  btnRegister.Text := getTraduction(TOlfAboutDialogTxtID.RegisterButton);
-  btnClose.Text := getTraduction(TOlfAboutDialogTxtID.CloseButton);
+  UpdateTextFields;
 
   btnLicenseInfo.Visible := assigned(onButtonLicenseClick) or
     assigned(onButtonLicenseClickProc);
@@ -389,16 +388,6 @@ begin
     assigned(onButtonBuyClickProc);
   btnRegister.Visible := assigned(onButtonRegisterClick) or
     assigned(onButtonRegisterClickProc);
-
-  if assigned(onGetFooterTextProc) then
-    lblFooter.Text := onGetFooterTextProc(FInternalLangue,
-      TOlfAboutDialogTxtID.Footer)
-  else if assigned(onGetFooterText) then
-    lblFooter.Text := onGetFooterText(FInternalLangue,
-      TOlfAboutDialogTxtID.Footer)
-  else
-    lblFooter.Text := '';
-  lblFooter.Visible := not lblFooter.Text.IsEmpty;
 
   if assigned(FonFormShow) then
     FonFormShow(self);
@@ -501,7 +490,8 @@ begin
   end
   else
     FInternalLangue := FLangue;
-  // TODO : add a global translation event
+
+  UpdateTextFields;
 end;
 
 procedure TOlfAboutDialogForm.SetLicence(const Value: string);
@@ -646,7 +636,7 @@ procedure TOlfAboutDialogForm.SetTitre(const Value: string);
 begin
   FTitre := Value;
   lblTitre.Text := FTitre;
-  caption := getTraduction(TOlfAboutDialogTxtID.About) + FTitre;
+  UpdateTextFields;
 end;
 
 procedure TOlfAboutDialogForm.SetURL(const Value: string);
@@ -664,13 +654,35 @@ end;
 procedure TOlfAboutDialogForm.SetVersionDate(const Value: string);
 begin
   FVersionDate := Value;
-  AfficheVersionEtVersionDate;
+  UpdateTextFields;
 end;
 
 procedure TOlfAboutDialogForm.SetVersionNumero(const Value: string);
 begin
   FVersionNumero := Value;
+  UpdateTextFields;
+end;
+
+procedure TOlfAboutDialogForm.UpdateTextFields;
+begin
+  caption := getTraduction(TOlfAboutDialogTxtID.About) + FTitre;
+
   AfficheVersionEtVersionDate;
+
+  if assigned(onGetFooterTextProc) then
+    lblFooter.Text := onGetFooterTextProc(FInternalLangue,
+      TOlfAboutDialogTxtID.Footer)
+  else if assigned(onGetFooterText) then
+    lblFooter.Text := onGetFooterText(FInternalLangue,
+      TOlfAboutDialogTxtID.Footer)
+  else
+    lblFooter.Text := '';
+  lblFooter.Visible := not lblFooter.Text.IsEmpty;
+
+  btnLicenseInfo.Text := getTraduction(TOlfAboutDialogTxtID.LicenseInfoButton);
+  btnBuy.Text := getTraduction(TOlfAboutDialogTxtID.BuyButton);
+  btnRegister.Text := getTraduction(TOlfAboutDialogTxtID.RegisterButton);
+  btnClose.Text := getTraduction(TOlfAboutDialogTxtID.CloseButton);
 end;
 
 procedure TOlfAboutDialogForm.zoneTextesResize(Sender: TObject);
