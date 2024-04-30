@@ -50,16 +50,22 @@ end;
 
 procedure TForm4.OlfAboutDialog1ButtonBuyClick(Sender: TObject);
 begin
+  ((Sender as TCustomButton).Owner as TOlfAboutDialogForm).Langue :=
+    TOlfAboutDialogLang.fr;
   showmessage('buy');
 end;
 
 procedure TForm4.OlfAboutDialog1ButtonLicenseClick(Sender: TObject);
 begin
+  ((Sender as TCustomButton).Owner as TOlfAboutDialogForm).Langue :=
+    TOlfAboutDialogLang.de;
   showmessage('license');
 end;
 
 procedure TForm4.OlfAboutDialog1ButtonRegisterClick(Sender: TObject);
 begin
+  ((Sender as TCustomButton).Owner as TOlfAboutDialogForm).Langue :=
+    TOlfAboutDialogLang.it;
   showmessage('register');
 end;
 

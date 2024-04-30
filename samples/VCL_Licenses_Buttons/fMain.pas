@@ -49,16 +49,22 @@ end;
 
 procedure TForm3.OlfAboutDialog1ButtonBuyClick(Sender: TObject);
 begin
+  ((Sender as TCustomButton).Owner as TOlfAboutDialogForm).Langue :=
+    TOlfAboutDialogLang.fr;
   showmessage('buy button');
 end;
 
 procedure TForm3.OlfAboutDialog1ButtonLicenseClick(Sender: TObject);
 begin
+  ((Sender as TCustomButton).Owner as TOlfAboutDialogForm).Langue :=
+    TOlfAboutDialogLang.de;
   showmessage('license button');
 end;
 
 procedure TForm3.OlfAboutDialog1ButtonRegisterClick(Sender: TObject);
 begin
+  ((Sender as TCustomButton).Owner as TOlfAboutDialogForm).Langue :=
+    TOlfAboutDialogLang.it;
   showmessage('register button');
 end;
 
