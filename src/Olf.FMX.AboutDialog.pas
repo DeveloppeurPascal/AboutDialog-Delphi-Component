@@ -197,7 +197,8 @@ type
     /// <summary>
     /// Langue des textes affichés par la boite de dialog
     /// </summary>
-    property Langue: TOlfAboutDialogLang read FLangue write SetLangue;
+    property Langue: TOlfAboutDialogLang read FLangue write SetLangue
+      default TOlfAboutDialogLang.Auto;
     /// <summary>
     /// Copyright du projet, affiché sous le numéro de version
     /// </summary>
@@ -253,7 +254,7 @@ begin
   FTitre := '';
   FVersionDate := '';
   FURL := '';
-  FLangue := TOlfAboutDialogLang.EN;
+  FLangue := TOlfAboutDialogLang.Auto;
   FonCloseDialog := nil;
   FonURLClick := nil;
   FCopyright := '';

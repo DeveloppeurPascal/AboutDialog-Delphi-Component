@@ -1,23 +1,23 @@
 ﻿if (TxtID = TOlfAboutDialogTxtID.Footer) then
 begin
   if assigned(onGetFooterTextProc) then
-    result := onGetFooterTextProc(FLangue, TxtID)
+    result := onGetFooterTextProc(FInternalLangue, TxtID)
   else if assigned(onGetFooterText) then
-    result := onGetFooterText(FLangue, TxtID)
+    result := onGetFooterText(FInternalLangue, TxtID)
   else
     result := '';
 end
 else
 begin
   if assigned(onGetTextProc) then
-    result := onGetTextProc(FLangue, TxtID)
+    result := onGetTextProc(FInternalLangue, TxtID)
   else if assigned(onGetText) then
-    result := onGetText(FLangue, TxtID)
+    result := onGetText(FInternalLangue, TxtID)
   else
     result := '';
 
-  if result.IsEmpty and not(FLangue = TOlfAboutDialogLang.Manual) then
-    case FLangue of
+  if result.IsEmpty and not(FInternalLangue = TOlfAboutDialogLang.Manual) then
+    case FInternalLangue of
       TOlfAboutDialogLang.FR:
         case TxtID of
           TOlfAboutDialogTxtID.About:

@@ -41,8 +41,7 @@ uses
 
 type
 {$SCOPEDENUMS on}
-  TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE, Manual);
-  // TODO : add 'Automatic'
+  TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE, Manual, Auto);
   TOlfAboutDialogTxtID = (About, Version, Date, VersionDate, CloseButton,
     Footer, LicenseInfoButton, BuyButton, RegisterButton);
 
@@ -100,7 +99,7 @@ type
     FPicture: TPicture;
     FonCloseDialog: TOlfAboutDialogCloseEvent;
     FonURLClick: TOlfAboutDialogURLClickEvent;
-    FLangue: TOlfAboutDialogLang;
+    FLangue, FInternalLangue: TOlfAboutDialogLang;
     FCopyright: string;
     FonFormClose: TNotifyEvent;
     FonFormShow: TNotifyEvent;
@@ -197,7 +196,30 @@ type
 implementation
 
 {$R *.dfm}
-{ TOlfAboutDialog }
+
+function GetCurrentLanguageCode: String;
+// copied from https://github.com/DeveloppeurPascal/librairies/blob/master/src/Olf.RTL.Language.pas
+var
+  buffer: PWideChar;
+  UserLCID: LCID;
+  BufLen: Integer;
+begin
+  // defaults
+  UserLCID := GetUserDefaultLCID;
+  BufLen := GetLocaleInfo(UserLCID, LOCALE_SISO639LANGNAME, nil, 0);
+  buffer := StrAlloc(BufLen);
+  if GetLocaleInfo(UserLCID, LOCALE_SISO639LANGNAME, buffer, BufLen) <> 0 then
+    Result := lowercase(buffer)
+  else
+    Result := 'en';
+  StrDispose(buffer);
+end;
+
+function GetCurrentLanguageISOCode: String;
+// copied from https://github.com/DeveloppeurPascal/librairies/blob/master/src/Olf.RTL.Language.pas
+begin
+  Result := GetCurrentLanguageCode.Substring(0, 2);
+end;
 
 procedure TOlfAboutDialogForm.btnBuyClick(Sender: TObject);
 begin
@@ -242,7 +264,7 @@ end;
 
 procedure TOlfAboutDialogForm.CalculeHauteurEntete;
 var
-  hauteur: integer;
+  hauteur: Integer;
 begin
   hauteur := 0;
   if lblTitre.visible then
@@ -319,10 +341,11 @@ begin
     assigned(onButtonRegisterClickProc);
 
   if assigned(onGetFooterTextProc) then
-    lblFooter.Caption := onGetFooterTextProc(FLangue,
+    lblFooter.Caption := onGetFooterTextProc(FInternalLangue,
       TOlfAboutDialogTxtID.Footer)
   else if assigned(onGetFooterText) then
-    lblFooter.Caption := onGetFooterText(FLangue, TOlfAboutDialogTxtID.Footer)
+    lblFooter.Caption := onGetFooterText(FInternalLangue,
+      TOlfAboutDialogTxtID.Footer)
   else
     lblFooter.Caption := '';
   lblFooter.visible := lblFooter.Caption <> '';
@@ -471,8 +494,30 @@ begin
 end;
 
 procedure TOlfAboutDialogForm.SetLangue(const Value: TOlfAboutDialogLang);
+var
+  ISO: string;
 begin
   FLangue := Value;
+  if FLangue = TOlfAboutDialogLang.Auto then
+  begin
+    ISO := GetCurrentLanguageISOCode;
+    if ISO = 'fr' then
+      FInternalLangue := TOlfAboutDialogLang.FR
+    else if ISO = 'en' then
+      FInternalLangue := TOlfAboutDialogLang.EN
+    else if ISO = 'it' then
+      FInternalLangue := TOlfAboutDialogLang.IT
+    else if ISO = 'pt' then
+      FInternalLangue := TOlfAboutDialogLang.PT
+    else if ISO = 'sp' then
+      FInternalLangue := TOlfAboutDialogLang.SP
+    else if ISO = 'de' then
+      FInternalLangue := TOlfAboutDialogLang.DE
+    else
+      FInternalLangue := TOlfAboutDialogLang.EN;
+  end
+  else
+    FInternalLangue := FLangue;
   // TODO : add a global translation event
 end;
 

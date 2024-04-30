@@ -43,8 +43,7 @@ uses
 
 type
 {$SCOPEDENUMS on}
-  TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE, Manual);
-  // TODO : add 'Automatic'
+  TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE, Manual, Auto);
   TOlfAboutDialogTxtID = (About, Version, Date, VersionDate, CloseButton,
     Footer, LicenseInfoButton, BuyButton, RegisterButton);
 
@@ -100,7 +99,7 @@ type
     FURL: string;
     FonCloseDialog: TOlfAboutDialogCloseEvent;
     FonURLClick: TOlfAboutDialogURLClickEvent;
-    FLangue: TOlfAboutDialogLang;
+    FLangue, FInternalLangue: TOlfAboutDialogLang;
     FCopyright: string;
     FonFormClose: TNotifyEvent;
     FonFormShow: TNotifyEvent;
@@ -192,6 +191,69 @@ type
 implementation
 
 {$R *.fmx}
+{$IF Defined(MSWINDOWS)}
+
+uses
+  Winapi.Windows;
+{$ELSEIF Defined(IOS)}
+
+uses
+  MacAPI.ObjectiveC,
+  iOSapi.Foundation;
+{$ELSEIF Defined(MACOS)}
+
+uses
+  MacAPI.ObjectiveC,
+  MacAPI.Foundation;
+{$ELSE}
+
+// Android + Linux + others
+uses
+  FMX.Platform;
+{$ENDIF}
+
+function GetCurrentLanguageCode: String;
+// copied from https://github.com/DeveloppeurPascal/librairies/blob/master/src/Olf.RTL.Language.pas
+{$IF Defined(MSWINDOWS)}
+var
+  buffer: PWideChar;
+  UserLCID: LCID;
+  BufLen: Integer;
+begin
+  // defaults
+  UserLCID := GetUserDefaultLCID;
+  BufLen := GetLocaleInfo(UserLCID, LOCALE_SISO639LANGNAME, nil, 0);
+  buffer := StrAlloc(BufLen);
+  if GetLocaleInfo(UserLCID, LOCALE_SISO639LANGNAME, buffer, BufLen) <> 0 then
+    Result := lowercase(buffer)
+  else
+    Result := 'en';
+  StrDispose(buffer);
+end;
+{$ELSEIF Defined(MACOS) or Defined(IOS)}
+
+var
+  Languages: NSArray;
+begin
+  Languages := TNSLocale.OCClass.preferredLanguages;
+  Result := lowercase(TNSString.Wrap(Languages.objectAtIndex(0)).UTF8String);
+end;
+{$ELSE}
+
+var
+  LocServ: IFMXLocaleService;
+begin
+  if TPlatformServices.Current.SupportsPlatformService(IFMXLocaleService,
+    IInterface(LocServ)) then
+    Result := LocServ.GetCurrentLangID;
+end;
+{$ENDIF}
+
+function GetCurrentLanguageISOCode: String;
+// copied from https://github.com/DeveloppeurPascal/librairies/blob/master/src/Olf.RTL.Language.pas
+begin
+  Result := GetCurrentLanguageCode.Substring(0, 2);
+end;
 
 procedure TOlfAboutDialogForm.AfficheVersionEtVersionDate;
 begin
@@ -329,9 +391,11 @@ begin
     assigned(onButtonRegisterClickProc);
 
   if assigned(onGetFooterTextProc) then
-    lblFooter.Text := onGetFooterTextProc(FLangue, TOlfAboutDialogTxtID.Footer)
+    lblFooter.Text := onGetFooterTextProc(FInternalLangue,
+      TOlfAboutDialogTxtID.Footer)
   else if assigned(onGetFooterText) then
-    lblFooter.Text := onGetFooterText(FLangue, TOlfAboutDialogTxtID.Footer)
+    lblFooter.Text := onGetFooterText(FInternalLangue,
+      TOlfAboutDialogTxtID.Footer)
   else
     lblFooter.Text := '';
   lblFooter.Visible := not lblFooter.Text.IsEmpty;
@@ -413,8 +477,30 @@ begin
 end;
 
 procedure TOlfAboutDialogForm.SetLangue(const Value: TOlfAboutDialogLang);
+var
+  ISO: string;
 begin
   FLangue := Value;
+  if FLangue = TOlfAboutDialogLang.Auto then
+  begin
+    ISO := GetCurrentLanguageISOCode;
+    if ISO = 'fr' then
+      FInternalLangue := TOlfAboutDialogLang.FR
+    else if ISO = 'en' then
+      FInternalLangue := TOlfAboutDialogLang.EN
+    else if ISO = 'it' then
+      FInternalLangue := TOlfAboutDialogLang.IT
+    else if ISO = 'pt' then
+      FInternalLangue := TOlfAboutDialogLang.PT
+    else if ISO = 'sp' then
+      FInternalLangue := TOlfAboutDialogLang.SP
+    else if ISO = 'de' then
+      FInternalLangue := TOlfAboutDialogLang.DE
+    else
+      FInternalLangue := TOlfAboutDialogLang.EN;
+  end
+  else
+    FInternalLangue := FLangue;
   // TODO : add a global translation event
 end;
 
