@@ -1195,7 +1195,7 @@ object Form2: TForm2
   object Button5: TButton
     Position.X = 280.000000000000000000
     Position.Y = 296.000000000000000000
-    TabOrder = 6
+    TabOrder = 7
     Text = 'Button5'
     TextSettings.Trimming = None
     OnClick = Button5Click
@@ -1374,10 +1374,39 @@ object Form2: TForm2
   object Button6: TButton
     Position.X = 344.000000000000000000
     Position.Y = 88.000000000000000000
-    TabOrder = 10
+    TabOrder = 11
     Text = 'Button6'
     TextSettings.Trimming = None
     OnClick = Button6Click
+  end
+  object OlfAboutDialog2: TOlfAboutDialog
+    Titre = 'my title'
+    VersionNumero = 'numero'
+    VersionDate = 'date'
+    MultiResBitmap = <
+      item
+      end>
+    URL = 'url'
+    onCloseDialog = OlfAboutDialog2CloseDialog
+    onURLClick = OlfAboutDialog2URLClick
+    Langue = FR
+    Copyright = '(c) de test'
+    onBeforeExecute = OlfAboutDialog2BeforeExecute
+    onAfterExecute = OlfAboutDialog2AfterExecute
+    onFormCreate = OlfAboutDialog2FormCreate
+    onFormActivate = OlfAboutDialog2FormActivate
+    onFormShow = OlfAboutDialog2FormShow
+    onFormClose = OlfAboutDialog2FormClose
+    Left = 360
+    Top = 80
+  end
+  object Button7: TButton
+    Position.X = 280.000000000000000000
+    Position.Y = 344.000000000000000000
+    TabOrder = 6
+    Text = 'Button7'
+    TextSettings.Trimming = None
+    OnClick = Button7Click
   end
   object ImageList1: TImageList
     Source = <
@@ -15710,26 +15739,5 @@ object Form2: TForm2
       end>
     Left = 112
     Top = 128
-  end
-  object OlfAboutDialog2: TOlfAboutDialog
-    Titre = 'my title'
-    VersionNumero = 'numero'
-    VersionDate = 'date'
-    MultiResBitmap = <
-      item
-      end>
-    URL = 'url'
-    onCloseDialog = OlfAboutDialog2CloseDialog
-    onURLClick = OlfAboutDialog2URLClick
-    Langue = FR
-    Copyright = '(c) de test'
-    onBeforeExecute = OlfAboutDialog2BeforeExecute
-    onAfterExecute = OlfAboutDialog2AfterExecute
-    onFormCreate = OlfAboutDialog2FormCreate
-    onFormActivate = OlfAboutDialog2FormActivate
-    onFormShow = OlfAboutDialog2FormShow
-    onFormClose = OlfAboutDialog2FormClose
-    Left = 360
-    Top = 80
   end
 end

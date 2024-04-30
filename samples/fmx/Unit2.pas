@@ -31,11 +31,23 @@ unit Unit2;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, System.ImageList, FMX.ImgList,
-  FMX.Objects, FMX.Layouts, Olf.FMX.AboutDialog;
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Controls.Presentation,
+  FMX.StdCtrls,
+  System.ImageList,
+  FMX.ImgList,
+  FMX.Objects,
+  FMX.Layouts,
+  Olf.FMX.AboutDialog;
 
 type
   TForm2 = class(TForm)
@@ -50,6 +62,7 @@ type
     Button5: TButton;
     OlfAboutDialog2: TOlfAboutDialog;
     Button6: TButton;
+    Button7: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -66,6 +79,7 @@ type
     procedure OlfAboutDialog2FormCreate(Sender: TObject);
     procedure OlfAboutDialog2FormShow(Sender: TObject);
     procedure OlfAboutDialog2URLClick(const AURL: string);
+    procedure Button7Click(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -79,7 +93,10 @@ implementation
 
 {$R *.fmx}
 
-uses System.IOUtils, u_urlOpen;
+uses
+  System.IOUtils,
+  u_urlOpen,
+  Olf.FMX.AboutDialogForm;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
@@ -145,12 +162,19 @@ end;
 
 procedure TForm2.Button5Click(Sender: TObject);
 begin
+  OlfAboutDialog1.Langue := TOlfAboutDialogLang.de;
   OlfAboutDialog1.Execute;
 end;
 
 procedure TForm2.Button6Click(Sender: TObject);
 begin
   OlfAboutDialog2.Execute;
+end;
+
+procedure TForm2.Button7Click(Sender: TObject);
+begin
+  OlfAboutDialog1.Langue := TOlfAboutDialogLang.Auto;
+  OlfAboutDialog1.Execute;
 end;
 
 procedure TForm2.OlfAboutDialog1CloseDialog;
