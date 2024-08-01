@@ -18,8 +18,6 @@ In the /src folder you will find the sources of the components and their depende
 
 In the /samples folder you will find demo projects of using these components as components or as live code. You can use them as inspiration for your own projects.
 
-The TODO.md file contains planned changes for a future release.
-
 The CHANGELOG folder contains changes made to the project versions. If you are upgrading components, take a look at it to see what has happened since your previous installation.
 
 ## Install
@@ -49,9 +47,13 @@ This project depends on :
 
 ## Compatibility
 
-This project has been tested and can be used with Delphi 10.1 Berlin, Delphi 10.2 Tokyo, Delphi 10.3 Rio, Delphi 10.4 Sydney, Delphi 11 Alexandria and Delphi 12 Athens.
+As an [Embarcadero MVP](https://www.embarcadero.com/resources/partners/mvp-directory), I benefit from the latest versions of [Delphi](https://www.embarcadero.com/products/delphi) and [C++ Builder](https://www.embarcadero.com/products/cbuilder) in [RAD Studio](https://www.embarcadero.com/products/rad-studio) as soon as they are released. I therefore work with these versions.
 
-It could be used before Delphi 10.1 Berlin if you adapt some parts of the code.
+Normally, my libraries and components should also run on at least the current version of [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter).
+
+There's no guarantee of compatibility with earlier versions, even though I try to keep my code clean and avoid using too many of the new ways of writing in it (type inference, inline var and multiline strings).
+
+If you detect any anomalies on earlier versions, please don't hesitate to [report them](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component/issues) so that I can test and try to correct or provide a workaround.
 
 ## License to use this code repository and its contents
 
