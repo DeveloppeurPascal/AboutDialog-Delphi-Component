@@ -1,6 +1,6 @@
 # Boite de dialogue "à propos" sous forme de composant Delphi
 
-[This page in english.](README.md)
+[This page in English.](README.md)
 
 Pour avoir des boites de dialogue "A propos" standard dans les projets VCL et FireMonkey.
 
