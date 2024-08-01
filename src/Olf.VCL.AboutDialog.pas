@@ -77,6 +77,9 @@ type
     FonButtonBuyClick: TNotifyEvent;
     FonGetFooterTextProc: TOlfAboutDialogGetTextProc;
     FonGetTextProc: TOlfAboutDialogGetTextProc;
+    FMainFormCaptionPrefix: string;
+    FMainFormCaptionSuffix: string;
+    FReplaceMainFormCaption: boolean;
     procedure SetVersionDate(const Value: string);
     procedure SetImage(const Value: TImage);
     procedure SetDescription(const Value: tstrings);
@@ -110,13 +113,14 @@ type
     procedure SetonGetText(const Value: TOlfAboutDialogGetTextEvent);
     procedure SetonGetFooterTextProc(const Value: TOlfAboutDialogGetTextProc);
     procedure SetonGetTextProc(const Value: TOlfAboutDialogGetTextProc);
-    { Déclarations privées }
+    procedure SetMainFormCaptionPrefix(const Value: string);
+    procedure SetMainFormCaptionSuffix(const Value: string);
+    procedure SetReplaceMainFormCaption(const Value: boolean);
   protected
     procedure Notification(AComponent: TComponent;
       Operation: TOperation); override;
-    { Déclarations protégées }
+    procedure DoReplaceMainFormCaption;
   public
-    { Déclarations publiques }
     /// <summary>
     /// Création d'une instance du composant
     /// </summary>
@@ -130,6 +134,16 @@ type
     /// </summary>
     function Execute: boolean;
 
+    /// <summary>
+    /// Return a standard main form caption from About Box properties
+    /// </summary>
+    function GetMainFormCaption: string; virtual;
+
+    /// <summary>
+    /// Return a string like 'v1.0-20240801' from VersionNumero and VersionDate properties
+    /// </summary>
+    function GetVersionDate: string; virtual;
+
     property onButtonLicenseClickProc: TNotifyEvent
       read FonButtonLicenseClickProc write SetonButtonLicenseClickProc;
     property onButtonBuyClickProc: TNotifyEvent read FonButtonBuyClickProc
@@ -141,7 +155,6 @@ type
     property onGetFooterTextProc: TOlfAboutDialogGetTextProc
       read FonGetFooterTextProc write SetonGetFooterTextProc;
   published
-    { Déclarations publiées }
     /// <summary>
     /// Titre affiché dans la barre de titre de la fenêtre "à propos" et en premier sur la boite de dialogue
     /// </summary>
@@ -235,6 +248,24 @@ type
       write SetonGetText;
     property onGetFooterText: TOlfAboutDialogGetTextEvent read FonGetFooterText
       write SetonGetFooterText;
+
+    /// <summary>
+    /// Used in the main form caption string between "[DEBUG]" (if any) and the program title
+    /// </summary>
+    property MainFormCaptionPrefix: string read FMainFormCaptionPrefix
+      write SetMainFormCaptionPrefix;
+    /// <summary>
+    /// Used in the main form caption after the title and program version
+    /// </summary>
+    property MainFormCaptionSuffix: string read FMainFormCaptionSuffix
+      write SetMainFormCaptionSuffix;
+    /// <summary>
+    /// Allow replacing the main form caption by the Aboutbox component.
+    /// If "True", changes in MainFormCaptionPrefix, MainFormCaptionSuffix,
+    /// Titre, VersionNumero erase current main form caption of the project.
+    /// </summary>
+    property ReplaceMainFormCaption: boolean read FReplaceMainFormCaption
+      write SetReplaceMainFormCaption;
   end;
 
 procedure Register;
@@ -298,12 +329,28 @@ begin
   inherited;
 end;
 
+procedure TOlfAboutDialog.DoReplaceMainFormCaption;
+begin
+  if csDesigning in ComponentState then
+    exit;
+
+  if csLoading in ComponentState then
+    tthread.ForceQueue(nil,
+      procedure
+      begin
+        if assigned(Self) then
+          DoReplaceMainFormCaption;
+      end)
+  else if FReplaceMainFormCaption then
+    application.mainform.Caption := GetMainFormCaption;
+end;
+
 function TOlfAboutDialog.Execute: boolean;
 var
   frmAboutDialog: TOlfAboutDialogForm;
 begin
   if assigned(FonBeforeExecute) then
-    FonBeforeExecute(self);
+    FonBeforeExecute(Self);
   try
     try
       frmAboutDialog := TOlfAboutDialogForm.Create(owner);
@@ -355,12 +402,48 @@ begin
     end;
   finally
     if assigned(FonAfterExecute) then
-      FonAfterExecute(self);
+      FonAfterExecute(Self);
   end;
 end;
 
+function TOlfAboutDialog.GetMainFormCaption: string;
+begin
+{$IFDEF DEBUG}
+  result := '[DEBUG] ';
+{$ELSE}
+  result := '';
+{$ENDIF}
+  if not FMainFormCaptionPrefix.IsEmpty then
+    result := result + FMainFormCaptionPrefix.trim + ' ';
+
+  if not FTitre.IsEmpty then
+    result := result + FTitre.trim + ' ';
+
+  if not FVersionNumero.IsEmpty then
+    result := result + 'v' + FVersionNumero.trim + ' ';
+
+  if not FMainFormCaptionSuffix.IsEmpty then
+    result := result + FMainFormCaptionSuffix.trim + ' ';
+
+  result := result.trim;
+end;
+
+function TOlfAboutDialog.GetVersionDate: string;
+begin
+  if not VersionNumero.IsEmpty then
+    result := 'v' + VersionNumero.trim
+  else
+    result := '';
+
+  if not VersionDate.IsEmpty then
+    if result.IsEmpty then
+      result := VersionDate.trim
+    else
+      result := result + '-' + VersionDate.trim;
+end;
+
 procedure TOlfAboutDialog.Notification(AComponent: TComponent;
-  Operation: TOperation);
+Operation: TOperation);
 begin
   inherited;
   if (Operation = TOperation.opRemove) then
@@ -384,19 +467,19 @@ end;
 procedure TOlfAboutDialog.SetImage(const Value: TImage);
 begin
   if assigned(FImage) then
-    FImage.RemoveFreeNotification(self);
+    FImage.RemoveFreeNotification(Self);
   FImage := Value;
   if assigned(FImage) then
-    FImage.FreeNotification(self);
+    FImage.FreeNotification(Self);
 end;
 
 procedure TOlfAboutDialog.SetImageList(const Value: TCustomImageList);
 begin
   if assigned(FImageList) then
-    FImageList.RemoveFreeNotification(self);
+    FImageList.RemoveFreeNotification(Self);
   FImageList := Value;
   if assigned(FImageList) then
-    FImageList.FreeNotification(self);
+    FImageList.FreeNotification(Self);
 end;
 
 procedure TOlfAboutDialog.SetImageListIndex(const Value
@@ -418,6 +501,12 @@ begin
   FPicture.Assign(Value);
 end;
 
+procedure TOlfAboutDialog.SetReplaceMainFormCaption(const Value: boolean);
+begin
+  FReplaceMainFormCaption := Value;
+  DoReplaceMainFormCaption;
+end;
+
 procedure TOlfAboutDialog.SetCopyright(const Value: string);
 begin
   FCopyright := Value;
@@ -436,6 +525,18 @@ end;
 procedure TOlfAboutDialog.SetLicence(const Value: tstrings);
 begin
   FLicence.Assign(Value);
+end;
+
+procedure TOlfAboutDialog.SetMainFormCaptionPrefix(const Value: string);
+begin
+  FMainFormCaptionPrefix := Value;
+  DoReplaceMainFormCaption;
+end;
+
+procedure TOlfAboutDialog.SetMainFormCaptionSuffix(const Value: string);
+begin
+  FMainFormCaptionSuffix := Value;
+  DoReplaceMainFormCaption;
 end;
 
 procedure TOlfAboutDialog.SetonAfterExecute(const Value: TNotifyEvent);
@@ -539,6 +640,7 @@ end;
 procedure TOlfAboutDialog.SetTitre(const Value: string);
 begin
   FTitre := Value;
+  DoReplaceMainFormCaption;
 end;
 
 procedure TOlfAboutDialog.SetURL(const Value: string);
@@ -549,6 +651,7 @@ end;
 procedure TOlfAboutDialog.SetVersionNumero(const Value: string);
 begin
   FVersionNumero := Value;
+  DoReplaceMainFormCaption;
 end;
 
 initialization
