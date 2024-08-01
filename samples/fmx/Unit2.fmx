@@ -1368,6 +1368,7 @@ object Form2: TForm2
     onCloseDialog = OlfAboutDialog1CloseDialog
     onURLClick = OlfAboutDialog1URLClick
     Langue = DE
+    ReplaceMainFormCaption = True
     Left = 304
     Top = 224
   end
@@ -1397,6 +1398,7 @@ object Form2: TForm2
     onFormActivate = OlfAboutDialog2FormActivate
     onFormShow = OlfAboutDialog2FormShow
     onFormClose = OlfAboutDialog2FormClose
+    ReplaceMainFormCaption = False
     Left = 360
     Top = 80
   end
