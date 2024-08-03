@@ -7200,7 +7200,6 @@ object Form1: TForm1
       'SOFTWARE.')
     onURLClick = OlfAboutDialog1URLClick
     Langue = EN
-    ReplaceMainFormCaption = False
     Left = 128
     Top = 216
   end
@@ -7212,7 +7211,6 @@ object Form1: TForm1
     URL = 'URL'
     onURLClick = OlfAboutDialog1URLClick
     Langue = FR
-    ReplaceMainFormCaption = False
     Left = 128
     Top = 296
   end
@@ -27863,7 +27861,6 @@ object Form1: TForm1
     URL = 'URL'
     onURLClick = OlfAboutDialog1URLClick
     Langue = DE
-    ReplaceMainFormCaption = False
     Left = 128
     Top = 376
   end
@@ -28311,7 +28308,6 @@ object Form1: TForm1
     onFormActivate = OlfAboutDialog5FormActivate
     onFormShow = OlfAboutDialog5FormShow
     onFormClose = OlfAboutDialog5FormClose
-    ReplaceMainFormCaption = False
     Left = 416
     Top = 232
   end
