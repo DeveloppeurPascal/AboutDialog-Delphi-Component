@@ -265,7 +265,7 @@ type
     /// Titre, VersionNumero erase current main form caption of the project.
     /// </summary>
     property ReplaceMainFormCaption: boolean read FReplaceMainFormCaption
-      write SetReplaceMainFormCaption;
+      write SetReplaceMainFormCaption default false;
   end;
 
 procedure Register;
