@@ -1,3 +1,39 @@
+/// <summary>
+/// ***************************************************************************
+///
+/// "About" dialog box as a Delphi Component
+///
+/// Copyright 2022-2024 Patrick Prémartin under AGPL 3.0 license.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS IN THE SOFTWARE.
+///
+/// ***************************************************************************
+///
+/// An "about" dialog box component for VCL and FireMonkey Delphi projects.
+///
+/// ***************************************************************************
+///
+/// Author(s) :
+///      Patrick PREMARTIN
+///
+/// Site :
+///      https://dialogueapropos.developpeur-pascal.fr/
+///
+/// Project site :
+///      https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component
+///
+/// ***************************************************************************
+/// File last update : 03/08/2024 21:29:04
+/// Signature : 6fb3c1cc6a181c1c3518b7ad47e52a19ed4de202
+/// ***************************************************************************
+/// </summary>
+
 unit fMain;
 
 interface
@@ -34,9 +70,7 @@ type
     procedure edtCaptionSuffixChange(Sender: TObject);
     procedure edtCaptionSuffixExit(Sender: TObject);
   private
-    { Déclarations privées }
   public
-    { Déclarations publiques }
   end;
 
 var
