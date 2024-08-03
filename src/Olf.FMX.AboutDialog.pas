@@ -328,7 +328,15 @@ begin
           DoReplaceMainFormCaption;
       end)
   else if FReplaceMainFormCaption then
-    application.mainform.Caption := GetMainFormCaption;
+    if assigned(application.mainform) then
+      application.mainform.Caption := GetMainFormCaption
+    else
+      tthread.ForceQueue(nil,
+        procedure
+        begin
+          if assigned(application.mainform) then
+            application.mainform.Caption := GetMainFormCaption;
+        end);
 end;
 
 function TOlfAboutDialog.Execute: boolean;
