@@ -1,150 +1,159 @@
 ﻿if (TxtID = TOlfAboutDialogTxtID.Footer) then
 begin
   if assigned(onGetFooterTextProc) then
-    result := onGetFooterTextProc(FInternalLangue, TxtID)
+    Result := onGetFooterTextProc(FInternalLangue, TxtID)
   else if assigned(onGetFooterText) then
-    result := onGetFooterText(FInternalLangue, TxtID)
+    Result := onGetFooterText(FInternalLangue, TxtID)
   else
-    result := '';
+    Result := '';
 end
 else
 begin
   if assigned(onGetTextProc) then
-    result := onGetTextProc(FInternalLangue, TxtID)
+    Result := onGetTextProc(FInternalLangue, TxtID)
   else if assigned(onGetText) then
-    result := onGetText(FInternalLangue, TxtID)
+    Result := onGetText(FInternalLangue, TxtID)
   else
-    result := '';
+    Result := '';
 
-  if result.IsEmpty and not(FInternalLangue = TOlfAboutDialogLang.Manual) then
-    case FInternalLangue of
-      TOlfAboutDialogLang.FR:
-        case TxtID of
-          TOlfAboutDialogTxtID.About:
-            result := 'A propos de ';
-          TOlfAboutDialogTxtID.Version:
-            result := 'Version ';
-          TOlfAboutDialogTxtID.Date:
-            result := ' du ';
-          TOlfAboutDialogTxtID.VersionDate:
-            result := 'Version du ';
-          TOlfAboutDialogTxtID.CloseButton:
-            result := 'Fermer';
-          TOlfAboutDialogTxtID.LicenseInfoButton:
-            result := 'Licence';
-          TOlfAboutDialogTxtID.BuyButton:
-            result := 'Acheter';
-          TOlfAboutDialogTxtID.RegisterButton:
-            result := 'Enregistrer';
-        else
-          raise exception.Create('Texte non gérée');
-        end;
-      TOlfAboutDialogLang.EN:
-        case TxtID of
-          TOlfAboutDialogTxtID.About:
-            result := 'About ';
-          TOlfAboutDialogTxtID.Version:
-            result := 'Release ';
-          TOlfAboutDialogTxtID.Date:
-            result := ' on ';
-          TOlfAboutDialogTxtID.VersionDate:
-            result := 'Release date ';
-          TOlfAboutDialogTxtID.CloseButton:
-            result := 'Close';
-          TOlfAboutDialogTxtID.LicenseInfoButton:
-            result := 'License';
-          TOlfAboutDialogTxtID.BuyButton:
-            result := 'Buy';
-          TOlfAboutDialogTxtID.RegisterButton:
-            result := 'Register';
-        else
-          raise exception.Create('Texte non gérée');
-        end;
-      TOlfAboutDialogLang.IT:
-        case TxtID of
-          TOlfAboutDialogTxtID.About:
-            result := 'Chi siamo ';
-          TOlfAboutDialogTxtID.Version:
-            result := 'Versione ';
-          TOlfAboutDialogTxtID.Date:
-            result := ' di ';
-          TOlfAboutDialogTxtID.VersionDate:
-            result := 'Versione di ';
-          TOlfAboutDialogTxtID.CloseButton:
-            result := 'Chiudere';
-          TOlfAboutDialogTxtID.LicenseInfoButton:
-            result := 'Licenza';
-          TOlfAboutDialogTxtID.BuyButton:
-            result := 'Acquistare';
-          TOlfAboutDialogTxtID.RegisterButton:
-            result := 'Registro';
-        else
-          raise exception.Create('Texte non gérée');
-        end;
-      TOlfAboutDialogLang.PT:
-        case TxtID of
-          TOlfAboutDialogTxtID.About:
-            result := 'Sobre ';
-          TOlfAboutDialogTxtID.Version:
-            result := 'Versão ';
-          TOlfAboutDialogTxtID.Date:
-            result := ' de ';
-          TOlfAboutDialogTxtID.VersionDate:
-            result := 'Versão de ';
-          TOlfAboutDialogTxtID.CloseButton:
-            result := 'Fechar';
-          TOlfAboutDialogTxtID.LicenseInfoButton:
-            result := 'Licença';
-          TOlfAboutDialogTxtID.BuyButton:
-            result := 'Comprar';
-          TOlfAboutDialogTxtID.RegisterButton:
-            result := 'Registar';
-        else
-          raise exception.Create('Texte non gérée');
-        end;
-      TOlfAboutDialogLang.SP:
-        case TxtID of
-          TOlfAboutDialogTxtID.About:
-            result := 'Sobre nosotros ';
-          TOlfAboutDialogTxtID.Version:
-            result := 'Versión ';
-          TOlfAboutDialogTxtID.Date:
-            result := ' al ';
-          TOlfAboutDialogTxtID.VersionDate:
-            result := 'Versión al ';
-          TOlfAboutDialogTxtID.CloseButton:
-            result := 'Cerrar';
-          TOlfAboutDialogTxtID.LicenseInfoButton:
-            result := 'Licencia';
-          TOlfAboutDialogTxtID.BuyButton:
-            result := 'Comprar';
-          TOlfAboutDialogTxtID.RegisterButton:
-            result := 'Registro';
-        else
-          raise exception.Create('Texte non gérée');
-        end;
-      TOlfAboutDialogLang.DE:
-        case TxtID of
-          TOlfAboutDialogTxtID.About:
-            result := 'Über ';
-          TOlfAboutDialogTxtID.Version:
-            result := 'Version ';
-          TOlfAboutDialogTxtID.Date:
-            result := ' des ';
-          TOlfAboutDialogTxtID.VersionDate:
-            result := 'Version des ';
-          TOlfAboutDialogTxtID.CloseButton:
-            result := 'Schließen';
-          TOlfAboutDialogTxtID.LicenseInfoButton:
-            result := 'Lizenz';
-          TOlfAboutDialogTxtID.BuyButton:
-            result := 'Kaufen';
-          TOlfAboutDialogTxtID.RegisterButton:
-            result := 'Registrieren';
-        else
-          raise exception.Create('Texte non gérée');
-        end;
+  if Result.IsEmpty and not(FInternalLangue = TOlfAboutDialogLang.Manual) then
+    case TxtID of
+      TOlfAboutDialogTxtID.LicenseText:
+        Result := FLicence;
+      TOlfAboutDialogTxtID.DescriptionText:
+        Result := FDescription;
+      TOlfAboutDialogTxtID.TitleText:
+        Result := FTitre;
     else
-      raise exception.Create('Langue non gérée');
+      case FInternalLangue of
+        TOlfAboutDialogLang.FR:
+          case TxtID of
+            TOlfAboutDialogTxtID.About:
+              Result := 'A propos de ';
+            TOlfAboutDialogTxtID.Version:
+              Result := 'Version ';
+            TOlfAboutDialogTxtID.Date:
+              Result := ' du ';
+            TOlfAboutDialogTxtID.VersionDate:
+              Result := 'Version du ';
+            TOlfAboutDialogTxtID.CloseButton:
+              Result := 'Fermer';
+            TOlfAboutDialogTxtID.LicenseInfoButton:
+              Result := 'Licence';
+            TOlfAboutDialogTxtID.BuyButton:
+              Result := 'Acheter';
+            TOlfAboutDialogTxtID.RegisterButton:
+              Result := 'Enregistrer';
+          else
+            raise exception.Create('Texte non gérée');
+          end;
+        TOlfAboutDialogLang.EN:
+          case TxtID of
+            TOlfAboutDialogTxtID.About:
+              Result := 'About ';
+            TOlfAboutDialogTxtID.Version:
+              Result := 'Release ';
+            TOlfAboutDialogTxtID.Date:
+              Result := ' on ';
+            TOlfAboutDialogTxtID.VersionDate:
+              Result := 'Release date ';
+            TOlfAboutDialogTxtID.CloseButton:
+              Result := 'Close';
+            TOlfAboutDialogTxtID.LicenseInfoButton:
+              Result := 'License';
+            TOlfAboutDialogTxtID.BuyButton:
+              Result := 'Buy';
+            TOlfAboutDialogTxtID.RegisterButton:
+              Result := 'Register';
+          else
+            raise exception.Create('Texte non gérée');
+          end;
+        TOlfAboutDialogLang.IT:
+          case TxtID of
+            TOlfAboutDialogTxtID.About:
+              Result := 'Chi siamo ';
+            TOlfAboutDialogTxtID.Version:
+              Result := 'Versione ';
+            TOlfAboutDialogTxtID.Date:
+              Result := ' di ';
+            TOlfAboutDialogTxtID.VersionDate:
+              Result := 'Versione di ';
+            TOlfAboutDialogTxtID.CloseButton:
+              Result := 'Chiudere';
+            TOlfAboutDialogTxtID.LicenseInfoButton:
+              Result := 'Licenza';
+            TOlfAboutDialogTxtID.BuyButton:
+              Result := 'Acquistare';
+            TOlfAboutDialogTxtID.RegisterButton:
+              Result := 'Registro';
+          else
+            raise exception.Create('Texte non gérée');
+          end;
+        TOlfAboutDialogLang.PT:
+          case TxtID of
+            TOlfAboutDialogTxtID.About:
+              Result := 'Sobre ';
+            TOlfAboutDialogTxtID.Version:
+              Result := 'Versão ';
+            TOlfAboutDialogTxtID.Date:
+              Result := ' de ';
+            TOlfAboutDialogTxtID.VersionDate:
+              Result := 'Versão de ';
+            TOlfAboutDialogTxtID.CloseButton:
+              Result := 'Fechar';
+            TOlfAboutDialogTxtID.LicenseInfoButton:
+              Result := 'Licença';
+            TOlfAboutDialogTxtID.BuyButton:
+              Result := 'Comprar';
+            TOlfAboutDialogTxtID.RegisterButton:
+              Result := 'Registar';
+          else
+            raise exception.Create('Texte non gérée');
+          end;
+        TOlfAboutDialogLang.SP:
+          case TxtID of
+            TOlfAboutDialogTxtID.About:
+              Result := 'Sobre nosotros ';
+            TOlfAboutDialogTxtID.Version:
+              Result := 'Versión ';
+            TOlfAboutDialogTxtID.Date:
+              Result := ' al ';
+            TOlfAboutDialogTxtID.VersionDate:
+              Result := 'Versión al ';
+            TOlfAboutDialogTxtID.CloseButton:
+              Result := 'Cerrar';
+            TOlfAboutDialogTxtID.LicenseInfoButton:
+              Result := 'Licencia';
+            TOlfAboutDialogTxtID.BuyButton:
+              Result := 'Comprar';
+            TOlfAboutDialogTxtID.RegisterButton:
+              Result := 'Registro';
+          else
+            raise exception.Create('Texte non gérée');
+          end;
+        TOlfAboutDialogLang.DE:
+          case TxtID of
+            TOlfAboutDialogTxtID.About:
+              Result := 'Über ';
+            TOlfAboutDialogTxtID.Version:
+              Result := 'Version ';
+            TOlfAboutDialogTxtID.Date:
+              Result := ' des ';
+            TOlfAboutDialogTxtID.VersionDate:
+              Result := 'Version des ';
+            TOlfAboutDialogTxtID.CloseButton:
+              Result := 'Schließen';
+            TOlfAboutDialogTxtID.LicenseInfoButton:
+              Result := 'Lizenz';
+            TOlfAboutDialogTxtID.BuyButton:
+              Result := 'Kaufen';
+            TOlfAboutDialogTxtID.RegisterButton:
+              Result := 'Registrieren';
+          else
+            raise exception.Create('Texte non gérée');
+          end;
+      else
+        raise exception.Create('Langue non gérée');
+      end;
     end;
 end;

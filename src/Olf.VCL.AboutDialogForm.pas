@@ -43,7 +43,8 @@ type
 {$SCOPEDENUMS on}
   TOlfAboutDialogLang = (FR, EN, IT, PT, SP, DE, Manual, Auto);
   TOlfAboutDialogTxtID = (About, Version, Date, VersionDate, CloseButton,
-    Footer, LicenseInfoButton, BuyButton, RegisterButton);
+    Footer, LicenseInfoButton, BuyButton, RegisterButton, LicenseText,
+    DescriptionText, TitleText);
 
   TNotifyProc = reference to procedure(Sender: TObject);
 
@@ -662,6 +663,10 @@ end;
 
 procedure TOlfAboutDialogForm.UpdateTextFields;
 begin
+  FTitre := getTraduction(TOlfAboutDialogTxtID.TitleText);
+  FLicence := getTraduction(TOlfAboutDialogTxtID.LicenseText);
+  FDescription := getTraduction(TOlfAboutDialogTxtID.DescriptionText);
+
   Caption := getTraduction(TOlfAboutDialogTxtID.About) + FTitre;
 
   AfficheVersionEtVersionDate;
