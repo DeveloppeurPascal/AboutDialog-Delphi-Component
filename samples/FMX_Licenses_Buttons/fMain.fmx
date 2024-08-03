@@ -7,6 +7,7 @@ object Form4: TForm4
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Button1: TButton
     Align = Center
@@ -16,6 +17,9 @@ object Form4: TForm4
     OnClick = Button1Click
   end
   object OlfAboutDialog1: TOlfAboutDialog
+    Titre = 'project title'
+    VersionNumero = '12.33.54'
+    VersionDate = '20240803'
     MultiResBitmap.Height = 800
     MultiResBitmap.Width = 800
     MultiResBitmap = <
@@ -41678,6 +41682,9 @@ object Form4: TForm4
           'C:\Users\patrickpremartin\Pictures\demos - Portraits\AdobeStock_' +
           '168498904-800x800.jpeg'
       end>
+    URL = 
+      'https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Componen' +
+      't'
     Licence.Strings = (
       'unit fMain;'
       ''
@@ -41777,12 +41784,23 @@ object Form4: TForm4
       ''
       'end.')
     Langue = EN
+    Copyright = 'project copyright'
     onButtonLicenseClick = OlfAboutDialog1ButtonLicenseClick
     onButtonBuyClick = OlfAboutDialog1ButtonBuyClick
     onButtonRegisterClick = OlfAboutDialog1ButtonRegisterClick
     onGetText = OlfAboutDialog1GetText
     onGetFooterText = OlfAboutDialog1GetFooterText
+    ReplaceMainFormCaption = True
     Left = 432
     Top = 208
+  end
+  object edtCaptionSuffix: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Position.X = 104.000000000000000000
+    Position.Y = 368.000000000000000000
+    TextPrompt = 'caption suffix'
+    OnChange = edtCaptionSuffixChange
+    OnChangeTracking = edtCaptionSuffixChangeTracking
   end
 end

@@ -16,12 +16,13 @@ uses
   FMX.Controls.Presentation,
   FMX.StdCtrls,
   Olf.FMX.AboutDialog,
-  Olf.FMX.AboutDialogForm;
+  Olf.FMX.AboutDialogForm, FMX.Edit;
 
 type
   TForm4 = class(TForm)
     OlfAboutDialog1: TOlfAboutDialog;
     Button1: TButton;
+    edtCaptionSuffix: TEdit;
     procedure Button1Click(Sender: TObject);
     function OlfAboutDialog1GetText(const ALang: TOlfAboutDialogLang;
       const ATxtID: TOlfAboutDialogTxtID): string;
@@ -30,6 +31,9 @@ type
     procedure OlfAboutDialog1ButtonRegisterClick(Sender: TObject);
     function OlfAboutDialog1GetFooterText(const ALang: TOlfAboutDialogLang;
       const ATxtID: TOlfAboutDialogTxtID): string;
+    procedure FormCreate(Sender: TObject);
+    procedure edtCaptionSuffixChange(Sender: TObject);
+    procedure edtCaptionSuffixChangeTracking(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -46,6 +50,21 @@ implementation
 procedure TForm4.Button1Click(Sender: TObject);
 begin
   OlfAboutDialog1.Execute;
+end;
+
+procedure TForm4.edtCaptionSuffixChange(Sender: TObject);
+begin
+  OlfAboutDialog1.MainFormCaptionSuffix := '- ' + edtCaptionSuffix.Text;
+end;
+
+procedure TForm4.edtCaptionSuffixChangeTracking(Sender: TObject);
+begin
+  OlfAboutDialog1.MainFormCaptionSuffix := '- CT ' + edtCaptionSuffix.Text;
+end;
+
+procedure TForm4.FormCreate(Sender: TObject);
+begin
+  OlfAboutDialog1.MainFormCaptionPrefix := '';
 end;
 
 procedure TForm4.OlfAboutDialog1ButtonBuyClick(Sender: TObject);
