@@ -144,6 +144,7 @@ type
     procedure SetonGetText(const Value: TOlfAboutDialogGetTextEvent);
     procedure SetonGetTextProc(const Value: TOlfAboutDialogGetTextProc);
   protected
+    FIsInUpdateTextFields: boolean;
     procedure UpdateTextFields;
   public
     property Titre: string read FTitre write SetTitre;
@@ -300,6 +301,8 @@ end;
 
 procedure TOlfAboutDialogForm.FormCreate(Sender: TObject);
 begin
+  FIsInUpdateTextFields := false;
+
   Titre := 'titre du logiciel';
   VersionNumero := '';
   VersionDate := '';
@@ -663,29 +666,37 @@ end;
 
 procedure TOlfAboutDialogForm.UpdateTextFields;
 begin
-  FTitre := getTraduction(TOlfAboutDialogTxtID.TitleText);
-  FLicence := getTraduction(TOlfAboutDialogTxtID.LicenseText);
-  FDescription := getTraduction(TOlfAboutDialogTxtID.DescriptionText);
+  if FIsInUpdateTextFields then
+    exit;
 
-  Caption := getTraduction(TOlfAboutDialogTxtID.About) + FTitre;
+  FIsInUpdateTextFields := true;
+  try
+    Titre := getTraduction(TOlfAboutDialogTxtID.TitleText);
+    Licence := getTraduction(TOlfAboutDialogTxtID.LicenseText);
+    Description := getTraduction(TOlfAboutDialogTxtID.DescriptionText);
 
-  AfficheVersionEtVersionDate;
+    Caption := getTraduction(TOlfAboutDialogTxtID.About) + FTitre;
 
-  if assigned(onGetFooterTextProc) then
-    lblFooter.Caption := onGetFooterTextProc(FInternalLangue,
-      TOlfAboutDialogTxtID.Footer)
-  else if assigned(onGetFooterText) then
-    lblFooter.Caption := onGetFooterText(FInternalLangue,
-      TOlfAboutDialogTxtID.Footer)
-  else
-    lblFooter.Caption := '';
-  lblFooter.visible := lblFooter.Caption <> '';
+    AfficheVersionEtVersionDate;
 
-  btnLicenseInfo.Caption :=
-    getTraduction(TOlfAboutDialogTxtID.LicenseInfoButton);
-  btnBuy.Caption := getTraduction(TOlfAboutDialogTxtID.BuyButton);
-  btnRegister.Caption := getTraduction(TOlfAboutDialogTxtID.RegisterButton);
-  btnClose.Caption := getTraduction(TOlfAboutDialogTxtID.CloseButton);
+    if assigned(onGetFooterTextProc) then
+      lblFooter.Caption := onGetFooterTextProc(FInternalLangue,
+        TOlfAboutDialogTxtID.Footer)
+    else if assigned(onGetFooterText) then
+      lblFooter.Caption := onGetFooterText(FInternalLangue,
+        TOlfAboutDialogTxtID.Footer)
+    else
+      lblFooter.Caption := '';
+    lblFooter.visible := lblFooter.Caption <> '';
+
+    btnLicenseInfo.Caption :=
+      getTraduction(TOlfAboutDialogTxtID.LicenseInfoButton);
+    btnBuy.Caption := getTraduction(TOlfAboutDialogTxtID.BuyButton);
+    btnRegister.Caption := getTraduction(TOlfAboutDialogTxtID.RegisterButton);
+    btnClose.Caption := getTraduction(TOlfAboutDialogTxtID.CloseButton);
+  finally
+    FIsInUpdateTextFields := false;
+  end;
 end;
 
 end.
