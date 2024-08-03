@@ -10,6 +10,7 @@ object Form3: TForm3
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   TextHeight = 15
   object Button1: TButton
     Left = 152
@@ -20,7 +21,20 @@ object Form3: TForm3
     TabOrder = 0
     OnClick = Button1Click
   end
+  object edtCaptionSuffix: TEdit
+    Left = 136
+    Top = 200
+    Width = 121
+    Height = 23
+    TabOrder = 1
+    Text = 'caption suffix'
+    OnChange = edtCaptionSuffixChange
+    OnExit = edtCaptionSuffixExit
+  end
   object OlfAboutDialog1: TOlfAboutDialog
+    Titre = 'project title'
+    VersionNumero = '01.01.01'
+    VersionDate = '19700101'
     Picture.Data = {
       0A544A504547496D616765D8640100FFD8FFE000104A46494600010100004800
       480000FFE1004C4578696600004D4D002A000000080001876900040000000100
@@ -2878,6 +2892,7 @@ object Form3: TForm3
       288FDAAF79428F2C0A645CAA23A430E6AF6CA705A068A2B153FCB1E957360A36
       D01A95368A0479AB3B29C16816A4223C53C2D4D4503E51AB4EA28A0A41451450
       0145145007FFD9}
+    URL = 'myurl'
     Licence.Strings = (
       'unit fMain;'
       ''
@@ -2977,9 +2992,11 @@ object Form3: TForm3
       ''
       'end.')
     Langue = FR
+    Copyright = 'project copyright'
     onButtonLicenseClick = OlfAboutDialog1ButtonLicenseClick
     onButtonRegisterClick = OlfAboutDialog1ButtonRegisterClick
     onGetFooterText = OlfAboutDialog1GetFooterText
+    ReplaceMainFormCaption = True
     Left = 304
     Top = 224
   end

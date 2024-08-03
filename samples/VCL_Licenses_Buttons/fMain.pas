@@ -21,6 +21,7 @@ type
   TForm3 = class(TForm)
     OlfAboutDialog1: TOlfAboutDialog;
     Button1: TButton;
+    edtCaptionSuffix: TEdit;
     procedure Button1Click(Sender: TObject);
     function OlfAboutDialog1GetText(const ALang: TOlfAboutDialogLang;
       const ATxtID: TOlfAboutDialogTxtID): string;
@@ -29,6 +30,9 @@ type
     procedure OlfAboutDialog1ButtonRegisterClick(Sender: TObject);
     procedure OlfAboutDialog1ButtonLicenseClick(Sender: TObject);
     procedure OlfAboutDialog1ButtonBuyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure edtCaptionSuffixChange(Sender: TObject);
+    procedure edtCaptionSuffixExit(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -45,6 +49,21 @@ implementation
 procedure TForm3.Button1Click(Sender: TObject);
 begin
   OlfAboutDialog1.Execute;
+end;
+
+procedure TForm3.edtCaptionSuffixChange(Sender: TObject);
+begin
+  OlfAboutDialog1.MainFormCaptionSuffix := '- CT ' + edtCaptionSuffix.Text;
+end;
+
+procedure TForm3.edtCaptionSuffixExit(Sender: TObject);
+begin
+  OlfAboutDialog1.MainFormCaptionSuffix := '- ' + edtCaptionSuffix.Text;
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+  OlfAboutDialog1.MainFormCaptionPrefix := '';
 end;
 
 procedure TForm3.OlfAboutDialog1ButtonBuyClick(Sender: TObject);
