@@ -10,6 +10,12 @@ Les premières étapes de la création de ces composants ont été codées en di
 
 Si vous êtes intéressé par la création de composants ou par le code de TOlfAboutDialog, consultez le [blog Developpeur Pascal](https://developpeur-pascal.fr/boite-de-dialogue-a-propos-de.html).
 
+## Présentations et conférences
+
+### Twitch
+
+Suivez mes streams de développement de logiciels, jeux vidéo, applications mobiles et sites web sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/boite-de-dialogue-a-propos-composant-delphi-vcl-et-fmx.html) la plupart du temps en français.
+
 ## Contenu du projet
 
 Dans le dossier /packages vous trouverez les sources des paquets à compiler puis installer pour utiliser les composants TOlfAboutDialog dans vos projets VCL ou FireMonkey.

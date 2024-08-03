@@ -10,6 +10,12 @@ The first steps of creating those components were live coded on [Twitch](https:/
 
 If you are interested in components creation or behind the code for TOlfAboutDialog, look at [Developpeur Pascal blog](https://developpeur-pascal.fr/boite-de-dialogue-a-propos-de.html).
 
+## Talks and conferences
+
+### Twitch
+
+Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/boite-de-dialogue-a-propos-composant-delphi-vcl-et-fmx.html) mostly in French.
+
 ## Contents of the project
 
 In the /packages folder you will find the sources of the packages to compile and install to use the TOlfAboutDialog components in your VCL or FireMonkey projects.
