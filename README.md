@@ -16,40 +16,17 @@ If you are interested in components creation or behind the code for TOlfAboutDia
 
 Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/boite-de-dialogue-a-propos-composant-delphi-vcl-et-fmx.html) mostly in French.
 
-## Contents of the project
+## Source code installation
 
-In the /packages folder you will find the sources of the packages to compile and install to use the TOlfAboutDialog components in your VCL or FireMonkey projects.
+To download this code repository, we recommend using "git", but you can also download a ZIP file directly from [its GitHub repository](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component).
 
-In the /src folder you will find the sources of the components and their dependencies.
-
-In the /samples folder you will find demo projects of using these components as components or as live code. You can use them as inspiration for your own projects.
-
-The CHANGELOG folder contains changes made to the project versions. If you are upgrading components, take a look at it to see what has happened since your previous installation.
-
-## Install
-
-To download this project you better should use "git" command but you also can download a ZIP from [its GitHub repository](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component).
-
-**Warning :** if the project has submodules dependencies they wont be in the ZIP file. You'll have to download them manually.
-
-The sources of the component packages can be found in the /packages folder. There you will find a VCL version and a FireMonkey version depending on your RAD Studio or Delphi release.
-
-You do not have to install both components. If you only do VCL projects, install only the VCL package. If you only do FireMonkey projects, install only the FMX package.
-
-The sources of the components are in the /src folder. If you just want to manipulate them by code you do not need to install the packages. Just use the source files in your projects.
-
-To install a component package:
-- open the package source in the Delphi IDE or RAD Studio
-- uninstall the package if it was already installed (right click, then "uninstall" on the package from the project manager)
-- compile the package
-- install the package (right click, then "install" on the package from the project manager)
-- add the sources of the components in your sources folder or the path to the /src folder in the default search path in the IDE options (preferable) or your project options (for each project)
-
-## Dependencies
-
-This project depends on :
+This project uses dependencies in the form of sub-modules. They will be absent from the ZIP file. You'll have to download them by hand.
 
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) is used by the sample projects and must be in the folder ./samples/lib-externes/librairies
+
+The project's technical documentation, generated with [DocInsight](https://devjetsoftware.com/products/documentation-insight/), is available in the ./docs folder and on [GitHub Pages](https://developpeurpascal.github.io/AboutDialog-Delphi-Component). Further information and related links are available on [the project website](https://dialogueapropos.developpeur-pascal.fr).
+
+If you need explanations or help in using this project in your own, please [contact me](https://developpeur-pascal.fr/nous-contacter.php). I can either direct you to an online resource, or offer you assistance on a fee-for-service basis. You can also contact me at a conference or an online presentation.
 
 ## Compatibility
 
@@ -63,18 +40,18 @@ If you detect any anomalies on earlier versions, please don't hesitate to [repor
 
 ## License to use this code repository and its contents
 
-This source code is distributed under the [AGPL 3.0 or later license](https://choosealicense.com/licenses/agpl-3.0/).
+This source code is distributed under the [AGPL 3.0 or later](https://choosealicense.com/licenses/agpl-3.0/) license.
 
-You are generally free to use the contents of this code repository anywhere, provided that:
+You are free to use the contents of this code repository anywhere provided :
 * you mention it in your projects
-* distribute the modifications made to the files supplied in this project under the AGPL license (leaving the original copyright notices (author, link to this repository, license) which must be supplemented by your own)
+* distribute the modifications made to the files provided in this AGPL-licensed project (leaving the original copyright notices (author, link to this repository, license) must be supplemented by your own)
 * to distribute the source code of your creations under the AGPL license.
 
-If this license doesn't suit your needs, you can purchase the right to use this project under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) or a dedicated commercial license ([contact the author](https://developpeur-pascal.fr/nous-contacter.php) to explain your needs).
+If this license doesn't suit your needs (especially for a commercial project) I also offer [classic licenses for developers and companies](https://dialogueapropos.developpeur-pascal.fr).
 
-These source codes are provided as is, without warranty of any kind.
+Some elements included in this repository may depend on third-party usage rights (images, sounds, etc.). They are not reusable in your projects unless otherwise stated.
 
-Certain elements included in this repository may be subject to third-party usage rights (images, sounds, etc.). They are not reusable in your projects unless otherwise stated.
+The source codes of this code repository as well as any compiled version are provided “as is” without warranty of any kind.
 
 ## How to ask a new feature, report a bug or a security issue ?
 

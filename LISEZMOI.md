@@ -16,40 +16,17 @@ Si vous êtes intéressé par la création de composants ou par le code de TOlfA
 
 Suivez mes streams de développement de logiciels, jeux vidéo, applications mobiles et sites web sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/boite-de-dialogue-a-propos-composant-delphi-vcl-et-fmx.html) la plupart du temps en français.
 
-## Contenu du projet
+## Installation des codes sources
 
-Dans le dossier /packages vous trouverez les sources des paquets à compiler puis installer pour utiliser les composants TOlfAboutDialog dans vos projets VCL ou FireMonkey.
+Pour télécharger ce dépôt de code il est recommandé de passer par "git" mais vous pouvez aussi télécharger un ZIP directement depuis [son dépôt GitHub](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component).
 
-Dans le dossier /src vous trouverez les sources des composants et leurs dépendances.
+Ce projet utilise des dépendances sous forme de sous modules. Ils seront absents du fichier ZIP. Vous devrez les télécharger à la main.
 
-Dans le dossier /samples vous trouverez des projets de démo d'utilisation de ces composants comme composants ou en direct sous forme de code. Vous pouvez vous en inspirer pour vos projets.
+* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) est utilisé par les projets de démo et doit être présent dans le dossier ./samples/lib-externes/librairies
 
-Le dossier CHANGELOG contient les modifications faites sur les versions du projet. Si vous faites une mise à jour des composants, jetez y un oeil pour savoir ce qu'il s'est passé depuis votre précédente installation.
+La documentation technique du projet, générée avec [DocInsight](https://devjetsoftware.com/products/documentation-insight/), est disponible dans le dossier ./docs et sur [GitHub Pages](https://developpeurpascal.github.io/AboutDialog-Delphi-Component). D'autres informations et des liens connexes sont disponibles sur [le site web du projet](https://dialogueapropos.developpeur-pascal.fr).
 
-## Installation
-
-Pour télécharger ce projet il est recommandé de passer par "git" mais vous pouvez aussi télécharger un ZIP directement depuis [son dépôt GitHub](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component).
-
-**Attention :** si le projet utilise des dépendances sous forme de sous modules ils seront absents du fichier ZIP. Vous devrez les télécharger à la main.
-
-Les sources des paquets de composants se trouvent dans le dossier /packages. Vous y trouverez une version VCL et une version FireMonkey en fonction de votre version de l'environnement de développement RAD Studio ou Delphi.
-
-Vous n'êtes pas obligés d'installer les deux versions. Si vous ne faites que des projets VCL n'installez que le paquet VCL. Si vous ne faites que des projets FireMonkey n'installez que le paquet FMX.
-
-Les sources des composants se trouvent dans le dossier /src. Si vous voulez juste les manipuler par code vous n'avez pas besoin d'installer les paquets. Utilisez simplement les fichiers sources dans vos projets.
-
-Pour installer un paquet de composant :
-- ouvrez le source du paquet dans l'IDE de Delphi ou RAD Studio
-- désinstallez le paquet s'il était déjà installé (clic droit, puis "désinstaller" sur le paquet depuis le gestionnaire de projets)
-- compilez le paquet
-- installez le paquet (clic droit, puis "installer" sur le paquet depuis le gestionnaire de projets)
-- ajoutez les sources des composants dans votre dossier de sources ou le chemin vers le dossier /src dans le chemin de recherche par défaut dans les options de l'environnement (préférable) ou les options de vos projets (pour chaque projet)
-
-## Dépendances
-
-Ce dépôt de code dépend des dépôts suivants :
-
-* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) est utlisé par les projets de démo et doit être présent dans le dossier ./samples/lib-externes/librairies
+Si vous avez besoin d'explications ou d'aide pour utiliser ce projet dans les vôtres, n'hésitez pas à [me contacter](https://developpeur-pascal.fr/nous-contacter.php). Je pourrai soit vous orienter vers une ressource en ligne, soit vous proposer une assistance sous forme de prestation ou gratuite selon les cas. Vous pouvez aussi me faire signe à l'occasion d'une conférence ou d'une présentation en ligne.
 
 ## Compatibilité
 
@@ -65,16 +42,16 @@ Si vous détectez des anomalies sur des versions antérieures n'hésitez pas à 
 
 Ces codes sources sont distribués sous licence [AGPL 3.0 ou ultérieure](https://choosealicense.com/licenses/agpl-3.0/).
 
-Vous êtes globalement libre d'utiliser le contenu de ce dépôt de code n'importe où à condition :
+Vous êtes libre d'utiliser le contenu de ce dépôt de code n'importe où à condition :
 * d'en faire mention dans vos projets
 * de diffuser les modifications apportées aux fichiers fournis dans ce projet sous licence AGPL (en y laissant les mentions de copyright d'origine (auteur, lien vers ce dépôt, licence) obligatoirement complétées par les vôtres)
 * de diffuser les codes sources de vos créations sous licence AGPL
 
-Si cette licence ne convient pas à vos besoins vous pouvez acheter un droit d'utilisation de ce projet sous la licence [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) ou une licence commerciale dédiée ([contactez l'auteur](https://developpeur-pascal.fr/nous-contacter.php) pour discuter de vos besoins).
-
-Ces codes sources sont fournis en l'état sans garantie d'aucune sorte.
+Si cette licence ne convient pas à vos besoins (notamment pour un projet commercial) je propose aussi [des licences classiques pour les développeurs et les entreprises](https://dialogueapropos.developpeur-pascal.fr).
 
 Certains éléments inclus dans ce dépôt peuvent dépendre de droits d'utilisation de tiers (images, sons, ...). Ils ne sont pas réutilisables dans vos projets sauf mention contraire.
+
+Les codes sources de ce dépôt de code comme leur éventuelle version compilée sont fournis en l'état sans garantie d'aucune sorte.
 
 ## Comment demander une nouvelle fonctionnalité, signaler un bogue ou une faille de sécurité ?
 
