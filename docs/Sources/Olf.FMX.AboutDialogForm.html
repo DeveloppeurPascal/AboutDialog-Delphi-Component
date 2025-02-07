@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>About Dialog Box components: Olf.FMX.AboutDialogForm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">About Dialog Box components</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<h1 class="unit">Unit Olf.FMX.AboutDialogForm</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section">Constants</div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+ ***************************************************************************
+
+<p>&quot;About&quot; dialog box as a Delphi Component
+
+<p>Copyright 2022-2024 Patrick Prémartin under AGPL 3.0 license.
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+<p>***************************************************************************
+
+<p>An &quot;about&quot; dialog box component for VCL and FireMonkey Delphi projects.
+
+<p>***************************************************************************
+
+<p>Author(s) : Patrick PREMARTIN
+
+<p>Site : <a href="https://dialogueapropos.developpeur-pascal.fr/">https://dialogueapropos.developpeur-pascal.fr/</a>
+
+<p>Project site : <a href="https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component">https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component</a>
+
+<p>*************************************************************************** File last update : 03/08/2024 21:30:56 Signature : c598e45a6717599d947152bd3875f6ddc819b073 *************************************************************************** </p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>System.SysUtils</li><li>System.Types</li><li>System.UITypes</li><li>System.Classes</li><li>System.Variants</li><li>FMX.MultiResBitmap</li><li>FMX.Types</li><li>FMX.Controls</li><li>FMX.Forms</li><li>FMX.Graphics</li><li>FMX.Objects</li><li>FMX.ImgList</li><li>FMX.Layouts</li><li>FMX.ExtCtrls</li><li>FMX.Controls.Presentation</li><li>FMX.StdCtrls</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Olf.FMX.AboutDialogForm.TOlfAboutDialogForm.html"><code>TOlfAboutDialogForm</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogTxtID">TOlfAboutDialogTxtID</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TNotifyProc">TNotifyProc</a></strong> = reference to procedure(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogGetTextEvent">TOlfAboutDialogGetTextEvent</a></strong> = function(Const ALang: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a>; Const ATxtID: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogTxtID">TOlfAboutDialogTxtID</a>): string of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogGetTextProc">TOlfAboutDialogGetTextProc</a></strong> = reference to function
+    (Const ALang: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a>;
+    Const ATxtID: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogTxtID">TOlfAboutDialogTxtID</a>): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogURLClickEvent">TOlfAboutDialogURLClickEvent</a></strong> = procedure(const AURL: string) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogCloseEvent">TOlfAboutDialogCloseEvent</a></strong> = procedure of object;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOlfAboutDialogLang"></span><code><strong>TOlfAboutDialogLang</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="FR">FR</span></li>
+<li>
+<span id="EN">EN</span></li>
+<li>
+<span id="IT">IT</span></li>
+<li>
+<span id="PT">PT</span></li>
+<li>
+<span id="SP">SP</span></li>
+<li>
+<span id="DE">DE</span></li>
+<li>
+<span id="Manual">Manual</span></li>
+<li>
+<span id="Auto">Auto</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOlfAboutDialogTxtID"></span><code><strong>TOlfAboutDialogTxtID</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="About">About</span></li>
+<li>
+<span id="Version">Version</span></li>
+<li>
+<span id="Date">Date</span></li>
+<li>
+<span id="VersionDate">VersionDate</span></li>
+<li>
+<span id="CloseButton">CloseButton</span></li>
+<li>
+<span id="Footer">Footer</span></li>
+<li>
+<span id="LicenseInfoButton">LicenseInfoButton</span></li>
+<li>
+<span id="BuyButton">BuyButton</span></li>
+<li>
+<span id="RegisterButton">RegisterButton</span></li>
+<li>
+<span id="LicenseText">LicenseText</span></li>
+<li>
+<span id="DescriptionText">DescriptionText</span></li>
+<li>
+<span id="TitleText">TitleText</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TNotifyProc"></span><code><strong>TNotifyProc</strong> = reference to procedure(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOlfAboutDialogGetTextEvent"></span><code><strong>TOlfAboutDialogGetTextEvent</strong> = function(Const ALang: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a>; Const ATxtID: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogTxtID">TOlfAboutDialogTxtID</a>): string of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOlfAboutDialogGetTextProc"></span><code><strong>TOlfAboutDialogGetTextProc</strong> = reference to function
+    (Const ALang: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a>;
+    Const ATxtID: <a href="Olf.FMX.AboutDialogForm.html#TOlfAboutDialogTxtID">TOlfAboutDialogTxtID</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOlfAboutDialogURLClickEvent"></span><code><strong>TOlfAboutDialogURLClickEvent</strong> = procedure(const AURL: string) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOlfAboutDialogCloseEvent"></span><code><strong>TOlfAboutDialogCloseEvent</strong> = procedure of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<a href="https://dialogueapropos.developpeur-pascal.fr/" target="_blank">About Dialog Box components</a> (c) 2022-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

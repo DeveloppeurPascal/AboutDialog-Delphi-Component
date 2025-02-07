@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>About Dialog Box components: Olf.VCL.AboutDialog: Class TOlfAboutDialog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">About Dialog Box components</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TOlfAboutDialog"></span><h1 class="cio">Class TOlfAboutDialog</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Olf.VCL.AboutDialog.html">Olf.VCL.AboutDialog</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TOlfAboutDialog = class(TComponent)</code></p>
+<h2 class="description">Description</h2>
+<p>
+Delphi 10.3 Rio and after</p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt><code>ComponentPlatformsAttribute</code>(pfidWindows)</dt>
+  <dd></dd>
+</dl>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TOlfAboutDialog</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Notification">Notification</a></strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#DoReplaceMainFormCaption">DoReplaceMainFormCaption</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Execute">Execute</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#GetMainFormCaption">GetMainFormCaption</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#GetVersionDate">GetVersionDate</a></strong>: string; virtual;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onButtonLicenseClickProc">onButtonLicenseClickProc</a></strong>: TNotifyEvent
+      read FonButtonLicenseClickProc write SetonButtonLicenseClickProc;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onButtonBuyClickProc">onButtonBuyClickProc</a></strong>: TNotifyEvent read FonButtonBuyClickProc
+      write SetonButtonBuyClickProc;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onButtonRegisterClickProc">onButtonRegisterClickProc</a></strong>: TNotifyEvent
+      read FonButtonRegisterClickProc write SetonButtonRegisterClickProc;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onGetTextProc">onGetTextProc</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextProc">TOlfAboutDialogGetTextProc</a> read FonGetTextProc
+      write SetonGetTextProc;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onGetFooterTextProc">onGetFooterTextProc</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextProc">TOlfAboutDialogGetTextProc</a>
+      read FonGetFooterTextProc write SetonGetFooterTextProc;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Titre">Titre</a></strong>: string read FTitre write SetTitre;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#VersionNumero">VersionNumero</a></strong>: string read FVersionNumero write SetVersionNumero;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#VersionDate">VersionDate</a></strong>: string read FVersionDate write SetVersionDate;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Image">Image</a></strong>: TImage read FImage write SetImage;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Picture">Picture</a></strong>: TPicture read FPicture write SetPicture;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Images">Images</a></strong>: TCustomImageList read FImageList write SetImageList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#ImageIndex">ImageIndex</a></strong>: system.UITypes.TImageIndex read FImageListIndex
+      write SetImageListIndex default -1;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#ImageName">ImageName</a></strong>: TImageName read FImageListName write SetImageListName;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#URL">URL</a></strong>: string read FURL write SetURL;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Description">Description</a></strong>: tstrings read FDescription write SetDescription;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Licence">Licence</a></strong>: tstrings read FLicence write SetLicence;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onCloseDialog">onCloseDialog</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogCloseEvent">TOlfAboutDialogCloseEvent</a> read FonCloseDialog
+      write SetonCloseDialog;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onURLClick">onURLClick</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogURLClickEvent">TOlfAboutDialogURLClickEvent</a> read FonURLClick
+      write SetonURLClick;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Langue">Langue</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a> read FLangue write SetLangue
+      default TOlfAboutDialogLang.Auto;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#Copyright">Copyright</a></strong>: string read FCopyright write SetCopyright;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onBeforeExecute">onBeforeExecute</a></strong>: TNotifyEvent read FonBeforeExecute
+      write SetonBeforeExecute;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onAfterExecute">onAfterExecute</a></strong>: TNotifyEvent read FonAfterExecute
+      write SetonAfterExecute;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onFormCreate">onFormCreate</a></strong>: TNotifyEvent read FonFormCreate
+      write SetonFormCreate;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onFormActivate">onFormActivate</a></strong>: TNotifyEvent read FonFormActivate
+      write SetonFormActivate;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onFormShow">onFormShow</a></strong>: TNotifyEvent read FonFormShow write SetonFormShow;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onFormClose">onFormClose</a></strong>: TNotifyEvent read FonFormClose write SetonFormClose;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onButtonLicenseClick">onButtonLicenseClick</a></strong>: TNotifyEvent read FonButtonLicenseClick
+      write SetonButtonLicenseClick;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onButtonBuyClick">onButtonBuyClick</a></strong>: TNotifyEvent read FonButtonBuyClick
+      write SetonButtonBuyClick;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onButtonRegisterClick">onButtonRegisterClick</a></strong>: TNotifyEvent read FonButtonRegisterClick
+      write SetonButtonRegisterClick;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onGetText">onGetText</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextEvent">TOlfAboutDialogGetTextEvent</a> read FonGetText
+      write SetonGetText;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#onGetFooterText">onGetFooterText</a></strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextEvent">TOlfAboutDialogGetTextEvent</a> read FonGetFooterText
+      write SetonGetFooterText;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#MainFormCaptionPrefix">MainFormCaptionPrefix</a></strong>: string read FMainFormCaptionPrefix
+      write SetMainFormCaptionPrefix;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#MainFormCaptionSuffix">MainFormCaptionSuffix</a></strong>: string read FMainFormCaptionSuffix
+      write SetMainFormCaptionSuffix;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Olf.VCL.AboutDialog.TOlfAboutDialog.html#ReplaceMainFormCaption">ReplaceMainFormCaption</a></strong>: boolean read FReplaceMainFormCaption
+      write SetReplaceMainFormCaption default false;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Notification"></span><code>procedure <strong>Notification</strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoReplaceMainFormCaption"></span><code>procedure <strong>DoReplaceMainFormCaption</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Création d'une instance du composant </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Suppression des données de l'instance du composant </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Execute"></span><code>function <strong>Execute</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ A appeler pour afficher la boite de dialogue </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetMainFormCaption"></span><code>function <strong>GetMainFormCaption</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return a standard main form caption from About Box properties </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetVersionDate"></span><code>function <strong>GetVersionDate</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return a string like 'v1.0-20240801' from VersionNumero and VersionDate properties </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onButtonLicenseClickProc"></span><code>property <strong>onButtonLicenseClickProc</strong>: TNotifyEvent
+      read FonButtonLicenseClickProc write SetonButtonLicenseClickProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onButtonBuyClickProc"></span><code>property <strong>onButtonBuyClickProc</strong>: TNotifyEvent read FonButtonBuyClickProc
+      write SetonButtonBuyClickProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onButtonRegisterClickProc"></span><code>property <strong>onButtonRegisterClickProc</strong>: TNotifyEvent
+      read FonButtonRegisterClickProc write SetonButtonRegisterClickProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onGetTextProc"></span><code>property <strong>onGetTextProc</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextProc">TOlfAboutDialogGetTextProc</a> read FonGetTextProc
+      write SetonGetTextProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onGetFooterTextProc"></span><code>property <strong>onGetFooterTextProc</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextProc">TOlfAboutDialogGetTextProc</a>
+      read FonGetFooterTextProc write SetonGetFooterTextProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Titre"></span><code>property <strong>Titre</strong>: string read FTitre write SetTitre;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Titre affiché dans la barre de titre de la fenêtre &quot;à propos&quot; et en premier sur la boite de dialogue </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="VersionNumero"></span><code>property <strong>VersionNumero</strong>: string read FVersionNumero write SetVersionNumero;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Affiché sous le titre sur la forme &quot;version XXX&quot; ou &quot;Version XXX du JJ/MM/AAAA&quot; </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="VersionDate"></span><code>property <strong>VersionDate</strong>: string read FVersionDate write SetVersionDate;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Affiché sous le titre sur la forme &quot;Version du JJ/MM/AAAA&quot; ou &quot;Version XXX du JJ/MM/AAAA&quot; </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Image"></span><code>property <strong>Image</strong>: TImage read FImage write SetImage;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Image utilisée comme logo dans la boite de dialogue (pris en compte si pas d'ImageList) </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Picture"></span><code>property <strong>Picture</strong>: TPicture read FPicture write SetPicture;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Bitmap utilisé par l'image servant de logo dans la boite de dialogue (pris en compte si pas d'ImageList ni d'Image) </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Images"></span><code>property <strong>Images</strong>: TCustomImageList read FImageList write SetImageList;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Liste d'images contenant le logo à utiliser dans la boite de dialogue </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ImageIndex"></span><code>property <strong>ImageIndex</strong>: system.UITypes.TImageIndex read FImageListIndex
+      write SetImageListIndex default -1;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Index de l'image provenant de la liste d'images correspondant au logo à utiliser dans la boite de dialogue </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ImageName"></span><code>property <strong>ImageName</strong>: TImageName read FImageListName write SetImageListName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Nom de l'image provenant de la liste d'images correspondant au logo à utiliser dans la boite de dialogue (le nom est prioritaire sur l'index s'il est renseigné et géré par la liste d'images) </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="URL"></span><code>property <strong>URL</strong>: string read FURL write SetURL;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Adresse du site pour lequel on affiche un lien sous le numéro de version/date </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Description"></span><code>property <strong>Description</strong>: tstrings read FDescription write SetDescription;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Texte de description à afficher dans la boite de dialogue S'il est vide, son pavé n'est pas affiché. S'il est indiqué et qu'une licence est aussi présente, ils se partagent l'espace disponible. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Licence"></span><code>property <strong>Licence</strong>: tstrings read FLicence write SetLicence;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Texte de la licence à afficher dans la boite de dialogue S'il est vide, son pavé n'est pas affiché. S'il est indiqué et qu'une description est aussi présente, ils se partagent l'espace disponible. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onCloseDialog"></span><code>property <strong>onCloseDialog</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogCloseEvent">TOlfAboutDialogCloseEvent</a> read FonCloseDialog
+      write SetonCloseDialog;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Evenement appelé lorsdu click sur le bouton de fermeture de la boite de dialogue </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onURLClick"></span><code>property <strong>onURLClick</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogURLClickEvent">TOlfAboutDialogURLClickEvent</a> read FonURLClick
+      write SetonURLClick;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Evenement appelé lorsqu'on clique sur l'URL (si URL affichée). </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Langue"></span><code>property <strong>Langue</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogLang">TOlfAboutDialogLang</a> read FLangue write SetLangue
+      default TOlfAboutDialogLang.Auto;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Langue des textes affichés par la boite de dialogue </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Copyright"></span><code>property <strong>Copyright</strong>: string read FCopyright write SetCopyright;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Copyright du projet, affiché sous le numéro de version </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onBeforeExecute"></span><code>property <strong>onBeforeExecute</strong>: TNotifyEvent read FonBeforeExecute
+      write SetonBeforeExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onAfterExecute"></span><code>property <strong>onAfterExecute</strong>: TNotifyEvent read FonAfterExecute
+      write SetonAfterExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onFormCreate"></span><code>property <strong>onFormCreate</strong>: TNotifyEvent read FonFormCreate
+      write SetonFormCreate;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onFormActivate"></span><code>property <strong>onFormActivate</strong>: TNotifyEvent read FonFormActivate
+      write SetonFormActivate;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onFormShow"></span><code>property <strong>onFormShow</strong>: TNotifyEvent read FonFormShow write SetonFormShow;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onFormClose"></span><code>property <strong>onFormClose</strong>: TNotifyEvent read FonFormClose write SetonFormClose;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onButtonLicenseClick"></span><code>property <strong>onButtonLicenseClick</strong>: TNotifyEvent read FonButtonLicenseClick
+      write SetonButtonLicenseClick;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onButtonBuyClick"></span><code>property <strong>onButtonBuyClick</strong>: TNotifyEvent read FonButtonBuyClick
+      write SetonButtonBuyClick;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onButtonRegisterClick"></span><code>property <strong>onButtonRegisterClick</strong>: TNotifyEvent read FonButtonRegisterClick
+      write SetonButtonRegisterClick;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onGetText"></span><code>property <strong>onGetText</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextEvent">TOlfAboutDialogGetTextEvent</a> read FonGetText
+      write SetonGetText;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onGetFooterText"></span><code>property <strong>onGetFooterText</strong>: <a href="Olf.VCL.AboutDialogForm.html#TOlfAboutDialogGetTextEvent">TOlfAboutDialogGetTextEvent</a> read FonGetFooterText
+      write SetonGetFooterText;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MainFormCaptionPrefix"></span><code>property <strong>MainFormCaptionPrefix</strong>: string read FMainFormCaptionPrefix
+      write SetMainFormCaptionPrefix;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used in the main form caption string between &quot;[DEBUG]&quot; (if any) and the program title </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MainFormCaptionSuffix"></span><code>property <strong>MainFormCaptionSuffix</strong>: string read FMainFormCaptionSuffix
+      write SetMainFormCaptionSuffix;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used in the main form caption after the title and program version </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ReplaceMainFormCaption"></span><code>property <strong>ReplaceMainFormCaption</strong>: boolean read FReplaceMainFormCaption
+      write SetReplaceMainFormCaption default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Allow replacing the main form caption by the Aboutbox component. If &quot;True&quot;, changes in MainFormCaptionPrefix, MainFormCaptionSuffix, Titre, VersionNumero erase current main form caption of the project. </p>
+</td></tr>
+</table>
+<a href="https://dialogueapropos.developpeur-pascal.fr/" target="_blank">About Dialog Box components</a> (c) 2022-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>
