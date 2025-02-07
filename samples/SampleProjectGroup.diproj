@@ -28,21 +28,21 @@
   <Outputs>
     <Output Type="HTML">
       <Active>true</Active>
-      <OutputDirectory>..\docs</OutputDirectory>
+      <OutputDirectory>..\docs\Samples</OutputDirectory>
     </Output>
     <Output Type="CHM">
       <Active>true</Active>
-      <OutputFileName>..\AboutDialogBox.chm</OutputFileName>
+      <OutputFileName>.\SampleProjectGroup.chm</OutputFileName>
     </Output>
     <Output Type="MSHELP2">
       <Active>false</Active>
-      <OutputFileName>build\docs\mshelp2\AboutDialogSampleGroup.HxS</OutputFileName>
-      <Namespace>AboutDialogSampleGroup</Namespace>
+      <OutputFileName>build\docs\mshelp2\SampleProjectGroup.HxS</OutputFileName>
+      <Namespace>SampleProjectGroup</Namespace>
       <TitleID>library</TitleID>
     </Output>
     <Output Type="HelpAndManual">
       <Active>false</Active>
-      <OutputFileName>build\docs\hm\AboutDialogSampleGroup.hmxp</OutputFileName>
+      <OutputFileName>build\docs\hm\SampleProjectGroup.hmxp</OutputFileName>
     </Output>
   </Outputs>
 </Project>
