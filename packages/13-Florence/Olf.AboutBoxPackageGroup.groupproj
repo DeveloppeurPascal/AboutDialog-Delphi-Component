@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E474A3A9-F9A1-4057-AD95-F338CB30E29C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Olf.FMX.AboutBoxPackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Olf.VCL.AboutBoxPackage.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Olf_FMX_AboutBoxPackage">
+        <MSBuild Projects="Olf.FMX.AboutBoxPackage.dproj"/>
+    </Target>
+    <Target Name="Olf_FMX_AboutBoxPackage:Clean">
+        <MSBuild Projects="Olf.FMX.AboutBoxPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Olf_FMX_AboutBoxPackage:Make">
+        <MSBuild Projects="Olf.FMX.AboutBoxPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Olf_VCL_AboutBoxPackage">
+        <MSBuild Projects="Olf.VCL.AboutBoxPackage.dproj"/>
+    </Target>
+    <Target Name="Olf_VCL_AboutBoxPackage:Clean">
+        <MSBuild Projects="Olf.VCL.AboutBoxPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Olf_VCL_AboutBoxPackage:Make">
+        <MSBuild Projects="Olf.VCL.AboutBoxPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Olf_FMX_AboutBoxPackage;Olf_VCL_AboutBoxPackage"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Olf_FMX_AboutBoxPackage:Clean;Olf_VCL_AboutBoxPackage:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Olf_FMX_AboutBoxPackage:Make;Olf_VCL_AboutBoxPackage:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
