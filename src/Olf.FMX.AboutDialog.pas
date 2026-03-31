@@ -336,22 +336,50 @@ begin
     exit;
 
   if csLoading in ComponentState then
+{$IF CompilerVersion <= 31.0}
+    // Delphi 10.1 Berlin and before
+    tthread.CreateAnonymousThread(
+      procedure
+      begin
+        tthread.Synchronize(nil,
+          procedure
+          begin
+            if assigned(Self) then
+              DoReplaceMainFormCaption;
+          end);
+      end).Start
+{$ELSE}
     tthread.ForceQueue(nil,
       procedure
       begin
         if assigned(Self) then
           DoReplaceMainFormCaption;
       end)
+{$ENDIF}
   else if FReplaceMainFormCaption then
     if assigned(application.mainform) then
       application.mainform.Caption := GetMainFormCaption
     else
+{$IF CompilerVersion <= 31.0}
+      // Delphi 10.1 Berlin and before
+      tthread.CreateAnonymousThread(
+        procedure
+        begin
+          tthread.Synchronize(nil,
+            procedure
+            begin
+              if assigned(application.mainform) then
+                application.mainform.Caption := GetMainFormCaption;
+            end);
+        end).Start;
+{$ELSE}
       tthread.ForceQueue(nil,
         procedure
         begin
           if assigned(application.mainform) then
             application.mainform.Caption := GetMainFormCaption;
         end);
+{$ENDIF}
 end;
 
 function TOlfAboutDialog.Execute: boolean;
