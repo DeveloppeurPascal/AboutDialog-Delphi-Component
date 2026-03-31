@@ -138,7 +138,7 @@
             <Form>OlfAboutDialogForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\librairies\src\u_urlOpen.pas"/>
+        <DCCReference Include="..\..\lib-externes\librairies\src\u_urlOpen.pas"/>
         <RcItem Include="..\ex-texte-licence.txt">
             <ContainerId>ResourceItem</ContainerId>
             <ResourceType>RCDATA</ResourceType>

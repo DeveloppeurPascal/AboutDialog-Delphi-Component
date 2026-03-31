@@ -50,7 +50,7 @@ uses
   Unit1 in 'Unit1.pas' {Form1},
   Olf.VCL.AboutDialog in '..\..\src\Olf.VCL.AboutDialog.pas',
   Olf.VCL.AboutDialogForm in '..\..\src\Olf.VCL.AboutDialogForm.pas' {OlfAboutDialogForm},
-  u_urlOpen in '..\lib-externes\librairies\src\u_urlOpen.pas';
+  u_urlOpen in '..\..\lib-externes\librairies\src\u_urlOpen.pas';
 
 {$R *.res}
 
