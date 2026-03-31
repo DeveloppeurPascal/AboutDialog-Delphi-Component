@@ -2,16 +2,20 @@
   ***************************************************************************
 
   "About" dialog box as a Delphi Component
+  Copyright (c) 2022-2026 Patrick PREMARTIN
 
-  Copyright 2022-2025 Patrick Prémartin under AGPL 3.0 license.
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-  DEALINGS IN THE SOFTWARE.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
   ***************************************************************************
 
@@ -29,8 +33,8 @@
   https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component
 
   ***************************************************************************
-  File last update : 2025-02-09T11:03:22.797+01:00
-  Signature : 4cfc8829abd99828881e793308a07a6e7bf70b3c
+  File last update : 2026-03-31T17:46:52.000+02:00
+  Signature : a0649c67cd85c8aed6183c0ff279a876b1e8509d
   ***************************************************************************
 *)
 
