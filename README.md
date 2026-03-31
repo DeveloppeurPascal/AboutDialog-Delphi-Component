@@ -14,7 +14,7 @@ If you are interested in components creation or behind the code for TOlfAboutDia
 
 ### Twitch
 
-Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/boite-de-dialogue-a-propos-composant-delphi-vcl-et-fmx.html) mostly in French.
+Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr) mostly in French.
 
 ## Source code installation
 
@@ -22,7 +22,7 @@ To download this code repository, we recommend using "git", but you can also dow
 
 This project uses dependencies in the form of sub-modules. They will be absent from the ZIP file. You'll have to download them by hand.
 
-* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) is used by the sample projects and must be in the folder ./samples/lib-externes/librairies
+* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be installed in the ./lib-externes/librairies subfolder.
 
 ## Documentation and support
 
@@ -30,7 +30,7 @@ I use comments in [XMLDOC](https://docwiki.embarcadero.com/RADStudio/en/XML_Docu
 
 I regularly use the [DocInsight](https://devjetsoftware.com/products/documentation-insight/) tool to enter them and check their formatting.
 
-Documentation is exported in HTML by [DocInsight](https://devjetsoftware.com/products/documentation-insight/) or [PasDoc](https://pasdoc.github.io) to the /docs folder of the repository. You can also [access it online](https://developpeurpascal.github.io/AboutDialog-Delphi-Component) through the hosting offered by GitHub Pages.
+Documentation is exported in HTML by [DocInsight](https://devjetsoftware.com/products/documentation-insight/) or [PasDoc](https://pasdoc.github.io) to the /docs folder of the repository. You can also [access it online](https://dialogueapropos.developpeur-pascal.fr/dev-corner.html) on the project website.
 
 Further information (tutorials, articles, videos, FAQ, talks and links) can be found on [the project website](https://dialogueapropos.developpeur-pascal.fr) or [the project devlog](https://developpeur-pascal.fr/boite-de-dialogue-a-propos-de.html).
 
