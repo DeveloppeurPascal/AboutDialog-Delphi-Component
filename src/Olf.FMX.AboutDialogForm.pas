@@ -65,11 +65,11 @@ type
 
   TNotifyProc = reference to procedure(Sender: TObject);
 
-  TOlfAboutDialogGetTextEvent = function(Const ALang: TOlfAboutDialogLang;
-    Const ATxtID: TOlfAboutDialogTxtID): string of object;
+  TOlfAboutDialogGetTextEvent = function(const ALang: TOlfAboutDialogLang;
+    const ATxtID: TOlfAboutDialogTxtID): string of object;
   TOlfAboutDialogGetTextProc = reference to function
-    (Const ALang: TOlfAboutDialogLang;
-    Const ATxtID: TOlfAboutDialogTxtID): string;
+    (const ALang: TOlfAboutDialogLang;
+    const ATxtID: TOlfAboutDialogTxtID): string;
 
   TOlfAboutDialogURLClickEvent = procedure(const AURL: string) of object;
   TOlfAboutDialogCloseEvent = procedure of object;
@@ -231,7 +231,7 @@ uses
   FMX.Platform;
 {$ENDIF}
 
-function GetCurrentLanguageCode: String;
+function GetCurrentLanguageCode: string;
 // copied from https://github.com/DeveloppeurPascal/librairies/blob/master/src/Olf.RTL.Language.pas
 {$IF Defined(MSWINDOWS)}
 var
@@ -255,7 +255,7 @@ var
   Languages: NSArray;
 begin
   Languages := TNSLocale.OCClass.preferredLanguages;
-  Result := lowercase(TNSString.Wrap(Languages.objectAtIndex(0)).UTF8String);
+  Result := string(TNSString.Wrap(Languages.objectAtIndex(0)).UTF8String).ToLower;
 end;
 {$ELSE}
 
@@ -268,7 +268,7 @@ begin
 end;
 {$ENDIF}
 
-function GetCurrentLanguageISOCode: String;
+function GetCurrentLanguageISOCode: string;
 // copied from https://github.com/DeveloppeurPascal/librairies/blob/master/src/Olf.RTL.Language.pas
 begin
   Result := GetCurrentLanguageCode.Substring(0, 2);
@@ -470,7 +470,7 @@ begin
 end;
 
 procedure TOlfAboutDialogForm.SetImageList(ImageList: TCustomImageList;
-ImageListIndex: System.UITypes.TImageIndex);
+  ImageListIndex: System.UITypes.TImageIndex);
 begin
   if assigned(ImageList) and (ImageListIndex > -1) then
   begin
@@ -725,3 +725,4 @@ begin
 end;
 
 end.
+
